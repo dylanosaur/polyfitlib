@@ -1,7 +1,7 @@
 # Written by Dylan Adams on 07/01/16
 # This program runs the testing scripts, currenlty just value tests
 
-from test_values import AmpOffsetTests
+from AmpOffset_tests import AmpOffsetTests
 
 
 def main():
