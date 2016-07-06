@@ -274,8 +274,6 @@ def fitWithWarnings(ps):
 
     Returns: The polySegData object
     """
-    ps.STRUCK_MIN = 0
-    ps.STRUCK_MAX = 65535
     if 1:
         calcAmpOffset(ps)
         calcVoltageFromRawData(ps)

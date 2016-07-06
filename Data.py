@@ -104,6 +104,14 @@ class PolySegData:
         # This is used by the selden equation.
         self.lam = None
 
+        # Some other globals to be used in analysis added 07/06/16
+        self.STRUCK_MIN = 0
+        self.STRUCK_MAX = 65535
+        self.Te_MIN = 10.0
+        self.Te_MAX = 3498.0
+        self.NE_STEPS = 51
+        self.TE_STEPS = 101
+
         # Initial guesses for temperature and density.
         self.Te0 = 0 # Temperature initial guess.
         self.ne0 = 0 # Density initial guess.

@@ -4,6 +4,7 @@
     <list default="true" id="65f58065-801e-4bfd-a18d-4fa11fb9232a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmpOffset.py" afterPath="$PROJECT_DIR$/AmpOffset.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data.py" afterPath="$PROJECT_DIR$/Data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polyfitlib_tests.py" afterPath="$PROJECT_DIR$/polyfitlib_tests.py" />
     </list>
     <ignored path="polyfitlib.iws" />
@@ -44,23 +45,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="polyfitlib_tests.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="polyfitlib_tests.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/polyfitlib_tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="301" column="7" selection-start-line="301" selection-start-column="7" selection-end-line="301" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.16346154">
+              <caret line="275" column="7" selection-start-line="275" selection-start-column="7" selection-end-line="275" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util.py">
+      <file leaf-file-name="Data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmpOffset.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AmpOffset.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmpOffset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65384614">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -114,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/AmpOffset_tests.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+              <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -147,8 +148,9 @@
         <option value="$PROJECT_DIR$/test_values.py" />
         <option value="$PROJECT_DIR$/run_tests.py" />
         <option value="$PROJECT_DIR$/AmpOffset_tests.py" />
-        <option value="$PROJECT_DIR$/polyfitlib_tests.py" />
         <option value="$PROJECT_DIR$/AmpOffset.py" />
+        <option value="$PROJECT_DIR$/Data.py" />
+        <option value="$PROJECT_DIR$/polyfitlib_tests.py" />
       </list>
     </option>
   </component>
@@ -382,7 +384,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commented out all dataOps except calcAmpOffset" />
     <MESSAGE value="vcs file" />
     <MESSAGE value="returns ps objects, unit test creates shot objects" />
     <MESSAGE value="pycharm files?" />
@@ -407,7 +408,8 @@
     <MESSAGE value="removed a few methods from ampOffset unit test&#10;original ps objects have empty values in a couple spots!" />
     <MESSAGE value="added globals values check to ampOffset unit test" />
     <MESSAGE value="made globals tests in ampOffset less strict" />
-    <option name="LAST_COMMIT_MESSAGE" value="made globals tests in ampOffset less strict" />
+    <MESSAGE value="diff global implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="diff global implementation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -583,25 +585,35 @@
     <entry file="file://$PROJECT_DIR$/AmpOffset_tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+          <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/polyfitlib_tests.py">
+    <entry file="file://$PROJECT_DIR$/AmpOffset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="301" column="7" selection-start-line="301" selection-start-column="7" selection-end-line="301" selection-end-column="7" />
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmpOffset.py">
+    <entry file="file://$PROJECT_DIR$/Data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65384614">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polyfitlib_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16346154">
+          <caret line="275" column="7" selection-start-line="275" selection-start-column="7" selection-end-line="275" selection-end-column="7" />
           <folding />
         </state>
       </provider>
