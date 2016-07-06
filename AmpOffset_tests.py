@@ -52,6 +52,34 @@ class AmpOffsetTests(unittest.TestCase):
             n += 1
         # close while loop
 
+    def test_str_offsetVolt_values(self):
+        n = 0
+        while n < len(self.old):
+            m = 0
+            while m < len(self.old[n].str_offsetVolt):
+                try:
+                    self.assert2DMatrixEqual(self.old[n].str_offsetVolt[m], self.new[n].str_offsetVolt[m])
+                    m += 1
+                except Exception, ex:
+                    print 'str_offsetVolt values failure, n=', n, 'm=', m, 'ex =', ex
+                    break
+            n += 1
+        # close while loop
+
+    def test_str_ampOffset_values(self):
+        n = 0
+        while n < len(self.old):
+            m = 0
+            while m < len(self.old[n].str_ampOffset):
+                try:
+                    self.assert2DMatrixEqual(self.old[n].str_ampOffset[m], self.new[n].str_ampOffset[m])
+                    m += 1
+                except Exception, ex:
+                    print 'str_ampOffset values failure, n=', n, 'm=', m, 'ex =', ex
+                    break
+            n += 1
+        # close while loop
+
     def test_shapes_values(self):
         i = 0
         while i < len(self.old):

@@ -20,6 +20,8 @@ def main():
         # run main tests
     vt.test_errNum_values()
     vt.test_str_offsetRaw_values()
+    vt.test_str_offsetVolt_values()
+    vt.test_str_ampOffset_values()
     vt.test_shapes_values()
     vt.test_chanFlagDC_values()
 
