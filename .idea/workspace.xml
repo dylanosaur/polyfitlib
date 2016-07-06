@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65f58065-801e-4bfd-a18d-4fa11fb9232a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polyfitlib.py" afterPath="$PROJECT_DIR$/polyfitlib.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polyfitlib_tests.py" afterPath="$PROJECT_DIR$/polyfitlib_tests.py" />
     </list>
     <ignored path="polyfitlib.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -388,7 +386,8 @@
     <MESSAGE value="commented out import statements in __init__ file" />
     <MESSAGE value="make pfl original return psList&#10;commented out save commands" />
     <MESSAGE value="commented out print statement in save routine" />
-    <option name="LAST_COMMIT_MESSAGE" value="commented out print statement in save routine" />
+    <MESSAGE value="style changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="style changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
