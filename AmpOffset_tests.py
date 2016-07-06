@@ -100,7 +100,20 @@ class AmpOffsetTests(unittest.TestCase):
             except Exception, ex:
                 print 'chanFlagDC values mismatch, psNum=', i, 'ex=', ex
                 break
-        
+
+    def test_globals_values(self):
+        i = 0
+        while i < len(self.old):
+            try:
+                self.assertEqual(self.old[i].STRUCK_MIN, 0)
+                self.assertEqual(self.new[i].STRUCK_MIN, 0)
+                self.assertEqual(self.old[i].STRUCK_MAX, 65535)
+                self.assertEqual(self.new[i].STRUCK_MAX, 65535)
+                i += 1
+            except:
+                print 'STRUCK MIN/MAX not set properly'
+                break
+        # close while loop
         
     def assertSequenceEqual(self, a, b):
         if len(a) != len(b):

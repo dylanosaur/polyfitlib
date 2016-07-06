@@ -300,6 +300,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     Returns: The polySegData object
     """
+    ps.STRUCK_MIN = 0
+    ps.STRUCK_MAX = 65535
     try:
         calcAmpOffset(ps)
         #calcVoltageFromRawData(ps)

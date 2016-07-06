@@ -24,5 +24,6 @@ def main():
     #vt.test_str_ampOffset_values()
     vt.test_shapes_values()
     vt.test_chanFlagDC_values()
+    vt.test_globals_values()
 
     return vt
