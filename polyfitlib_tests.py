@@ -360,7 +360,6 @@ def calcTransMask(ps):
 
 from numpy import ndarray, any, average
 from AmpOffset import calcAmpOffset
-    
 
 from numpy import ndarray, any
 def calcVoltageFromRawData(ps):

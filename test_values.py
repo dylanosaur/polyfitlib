@@ -27,17 +27,41 @@ class AmpOffsetTests(unittest.TestCase):
         print 'new time =', self.finish_new - self.start_new
         print 'old time =', self.finish_old - self.start_old
 
-    def test_errNum_values(self, n):
-        try:
-            self.assertEqual(self.new[n].errNum, self.old[n].errNum)
-        except Exception, ex:
-            print 'errNum_values failure, n=', n, 'ex =', ex
+    def test_errNum_values(self):
+        n = 0
+        while n < len(ps.old)
+            try:
+                self.assertEqual(self.new[n].errNum, self.old[n].errNum)
+                n += 1
+            except Exception, ex:
+                print 'errNum_values failure, n=', n, 'ex =', ex
+                break
+        # close while loop
 
-    def test_str_offsetRaw_values(self, n, m):
-        try:
-            self.assert2DMatrixEqual(self.old[n].str_offsetRaw[m], self.new[n].str_offsetRaw[m])
-        except Exception, ex:
-            print 'strOffsetRaw values failure, n=', n, 'm=', m, 'ex =', ex
+    def test_str_offsetRaw_values(self):
+        n = 0
+        while n < len(self.old):
+            m = 0
+            while m < len(self.old[n].str_offsetRaw):
+                try:
+                    self.assert2DMatrixEqual(self.old[n].str_offsetRaw[m], self.new[n].str_offsetRaw[m])
+                    m += 1
+                except Exception, ex:
+                    print 'strOffsetRaw values failure, n=', n, 'm=', m, 'ex =', ex
+                    break
+            n += 1
+        # close while loop
+
+    def test_shapes_values(self):
+        i=0
+        while i < len(self.old)
+            try:
+                self.assertSequenceEqual(self.old[i].str_voltData.shape, self.new[i].str_voltData.shape)
+                i += 1
+            except Exception, ex:
+                print 'shapes (array dimensions) values mismatch, psNum=', i, 'ex=', ex
+                break
+
         
         
     def assertSequenceEqual(self, a, b):
