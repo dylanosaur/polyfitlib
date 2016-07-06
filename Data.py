@@ -47,10 +47,8 @@ class PolySegData:
         self.chanFlagDC		= None	# List of usable DC channels (1 = usable, 0 = unusable)
         self.chanFlagAC		= None	# List of usable AC channels
         self.satChans		= None	# List of channels that saturated
-        self.satChansDark	= None	# List of channels that saturated during
-					# the dark segment
-        self.noPulseFitChans	= None  # List of channels that failed the
-					# PolyPulseFit routine
+        self.satChansDark	= []	# List of channels that saturated during the dark segment
+        self.noPulseFitChans	= None  # List of channels that failed the PolyPulseFit routine
 
         #######################################################################
         # The following data is calculated during the fitting process.        #

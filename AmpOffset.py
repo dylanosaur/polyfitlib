@@ -20,7 +20,7 @@ def calcAmpOffset(ps):
     ps.acq_ampOffset = ndarray(shape=ps.acq_offsetRaw.shape[0])
     ps.acq_offsetVolt = ndarray(shape=ps.acq_offsetRaw.shape)
 
-    ps.satChansDark = []
+    #ps.satChansDark = []
     STRUCK_MIN = ps.STRUCK_MIN
     STRUCK_MAX = ps.STRUCK_MAX
 
