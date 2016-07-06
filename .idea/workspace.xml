@@ -331,7 +331,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="725" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -362,7 +362,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made unit tests less verbose" />
     <MESSAGE value="style changes to test values" />
     <MESSAGE value="commented out functions past amp offset in pfl original (no suffix)" />
     <MESSAGE value="commented out import statements in __init__ file" />
@@ -387,7 +386,8 @@
     <MESSAGE value="changed pfl to output data gain&#10;completely remaking unit tests" />
     <MESSAGE value="Data should've been data..." />
     <MESSAGE value="loop variable problems... m -&gt; n" />
-    <option name="LAST_COMMIT_MESSAGE" value="loop variable problems... m -&gt; n" />
+    <MESSAGE value="ampOffset tests now working and actually checking some data arrays that are useful" />
+    <option name="LAST_COMMIT_MESSAGE" value="ampOffset tests now working and actually checking some data arrays that are useful" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
