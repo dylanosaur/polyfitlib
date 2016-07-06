@@ -56,7 +56,8 @@ class AmpOffsetTests(unittest.TestCase):
         i = 0
         while i < len(self.old):
             try:
-                self.assertSequenceEqual(self.old[i].str_voltData.shape, self.new[i].str_voltData.shape)
+                self.assertSequenceEqual(self.old[i].str_offsetRaw.shape, self.new[i].str_offsetRaw.shape)
+                self.assertSequenceEqual(self.old[i].acq_offsetRaw.shape, self.new[i].acq_offsetRaw.shape)
                 i += 1
             except Exception, ex:
                 print 'shapes (array dimensions) values mismatch, psNum=', i, 'ex=', ex
