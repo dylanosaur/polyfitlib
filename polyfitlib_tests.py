@@ -283,7 +283,7 @@ def fitWithWarnings(ps):
         calcTransMask(ps)
         calcNumPhotons(ps)
         filterChans(ps)
-	#calcACPhotons(ps)
+	    #calcACPhotons(ps)
         calcScatteringAngle(ps)
         calcLambdaArray(ps)
         calcTeNeInitVals(ps, 10.0, 'tsc')

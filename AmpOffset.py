@@ -27,8 +27,8 @@ def calcAmpOffset(ps):
     # Check for saturation in the offset data.
     for i in range(ps.str_offsetRaw.shape[0]):
         if any(ps.str_offsetRaw[i] == STRUCK_MIN) or any(ps.str_offsetRaw[i] == STRUCK_MAX):
-        ps.satChansDark.append(i + ps.calib.skipAPD)
-        ps.chanFlagDC[i] = 0
+            ps.satChansDark.append(i + ps.calib.skipAPD)
+            ps.chanFlagDC[i] = 0
 
     #for i in range(ps.acq_offsetRaw.shape[0]):
     #    if any(ps.acq_offsetRaw[i] == ACQIRIS_MIN) or any(ps.acq_offsetRaw[i] == ACQIRIS_MAX):
