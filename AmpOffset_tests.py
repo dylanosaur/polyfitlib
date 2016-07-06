@@ -13,14 +13,14 @@ class AmpOffsetTests(unittest.TestCase):
         self.start_new = time.time()
         try:
             poly_new = pfl.fitShot(1140726089, burstLen=25)
-            self.new = poly_new
+            self.new = poly_new.data
         except Exception, ex:
             print 'error: shots not loaded correctly,', ex
         self.finish_new = time.time()
         self.start_old = time.time()
         try:
             poly_old = opfl.fitShot(1140726089, burstLen=25)
-            self.old = poly_old
+            self.old = poly_old.data
         except Exception, ex:
             print 'error: shots not loaded correctly,', ex
         self.finish_old = time.time()
@@ -30,24 +30,13 @@ class AmpOffsetTests(unittest.TestCase):
     def test_errNum_values(self):
         n = 0
         while n < len(self.old):
-            try:
-                self.assertEqual(self.new[n].errNum, self.old[n].errNum)
-                n += 1
-            except Exception, ex:
-                print 'errNum_values failure, n=', n, 'ex =', ex
-                break
-        # close while loop
-
-    def test_str_offsetRaw_values(self):
-        n = 0
-        while n < len(self.old):
             m = 0
-            while m < len(self.old[n].str_offsetRaw):
+            while m < len(self.old[n]):
                 try:
-                    self.assert2DMatrixEqual(self.old[n].str_offsetRaw[m], self.new[n].str_offsetRaw[m])
+                    self.assertEqual(self.new[n].errNum, self.old[n].errNum)
                     m += 1
                 except Exception, ex:
-                    print 'strOffsetRaw values failure, n=', n, 'm=', m, 'ex =', ex
+                    print 'errNum_values failure, n=', n, 'ex =', ex
                     break
             n += 1
         # close while loop
