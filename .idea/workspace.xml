@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65f58065-801e-4bfd-a18d-4fa11fb9232a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmpOffset_tests.py" afterPath="$PROJECT_DIR$/AmpOffset_tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data.py" afterPath="$PROJECT_DIR$/Data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polyfitlib.py" afterPath="$PROJECT_DIR$/polyfitlib.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polyfitlib_tests.py" afterPath="$PROJECT_DIR$/polyfitlib_tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_tests.py" afterPath="$PROJECT_DIR$/run_tests.py" />
     </list>
     <ignored path="polyfitlib.iws" />
     <ignored path=".idea/workspace.xml" />
