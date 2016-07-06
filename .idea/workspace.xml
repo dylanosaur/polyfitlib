@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="65f58065-801e-4bfd-a18d-4fa11fb9232a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polyfitlib.py" afterPath="$PROJECT_DIR$/polyfitlib.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polyfitlib_tests.py" afterPath="$PROJECT_DIR$/polyfitlib_tests.py" />
     </list>
     <ignored path="polyfitlib.iws" />
@@ -27,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/polyfitlib.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="259" column="26" selection-start-line="259" selection-start-column="26" selection-end-line="259" selection-end-column="26" />
+              <caret line="250" column="5" selection-start-line="250" selection-start-column="5" selection-end-line="250" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -46,8 +47,8 @@
       <file leaf-file-name="polyfitlib_tests.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/polyfitlib_tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1646489">
-              <caret line="248" column="5" selection-start-line="248" selection-start-column="5" selection-end-line="248" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.8232446">
+              <caret line="258" column="9" selection-start-line="258" selection-start-column="9" selection-end-line="258" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -386,7 +387,8 @@
     <MESSAGE value="commented out functions past amp offset in pfl original (no suffix)" />
     <MESSAGE value="commented out import statements in __init__ file" />
     <MESSAGE value="make pfl original return psList&#10;commented out save commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="make pfl original return psList&#10;commented out save commands" />
+    <MESSAGE value="commented out print statement in save routine" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented out print statement in save routine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -472,15 +474,15 @@
     <entry file="file://$PROJECT_DIR$/polyfitlib.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="259" column="26" selection-start-line="259" selection-start-column="26" selection-end-line="259" selection-end-column="26" />
+          <caret line="250" column="5" selection-start-line="250" selection-start-column="5" selection-end-line="250" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/polyfitlib_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1646489">
-          <caret line="248" column="5" selection-start-line="248" selection-start-column="5" selection-end-line="248" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.8232446">
+          <caret line="258" column="9" selection-start-line="258" selection-start-column="9" selection-end-line="258" selection-end-column="9" />
           <folding />
         </state>
       </provider>

@@ -248,7 +248,7 @@ def fitShot(shotNum, specFlag = "tsc", numProcs = None, burstLen = 0):
         print "Multiprocessing module missing: using only one processor."
         map(fitPolySeg, psList)
 
-    print "Saving data to MDSplus."
+    #print "Saving data to MDSplus."
     #try:
     #    saveToMDSplus(data)
     #except Exception, ex:

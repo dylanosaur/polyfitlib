@@ -248,15 +248,15 @@ def fitShot(shotNum, specFlag = "tsc", numProcs = None, burstLen = 0):
 
     #print "Saving data to MDSplus."
     #try:
-        # saveToMDSplus(data)
+    #    saveToMDSplus(data)
     #except Exception, ex:
-        #print "MDSplus save failed: %s" % ex
+    #    print "MDSplus save failed: %s" % ex
 
     #print "Writing output file."
     #try:
-        #writeOutputFile(data)
+    #    writeOutputFile(data)
     #except Exception, ex:
-        #print "Failed to write output: %s" % ex
+    #    print "Failed to write output: %s" % ex
 
     return psList
     
