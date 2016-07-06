@@ -28,16 +28,21 @@ class AmpOffsetTests(unittest.TestCase):
         print 'old time =', self.finish_old - self.start_old
 
     def test_errNum_values(self):
+        # ps data starts at fitShot_output.data[roa position = 1][segment]
         n = 0
         while n < len(self.old):
             m = 0
-            while m < len(self.old[n]):
-                try:
-                    self.assertEqual(self.new[n].errNum, self.old[n].errNum)
-                    m += 1
-                except Exception, ex:
-                    print 'errNum_values failure, n=', n, 'ex =', ex
-                    break
+            try:
+                num_seg = len(self.old[n])
+                while m < num_seg:
+                    try:
+                        self.assertEqual(self.new[n][m].errNum, self.old[n][m].errNum)
+                        m += 1
+                    except Exception, ex:
+                        print 'errNum_values failure, n=', n, 'ex =', ex
+                        break
+            except Exception, ex:
+                pass
             n += 1
         # close while loop
 
@@ -90,18 +95,25 @@ class AmpOffsetTests(unittest.TestCase):
                 print 'chanFlagDC values mismatch, psNum=', i, 'ex=', ex
                 break
 
-    def test_globals_values(self):
-        i = 0
-        while i < len(self.old):
+    def test_globals_values(self):# ps data starts at fitShot_output.data[roa position = 1][segment]
+        n = 0
+        while n < len(self.old):
+            m = 0
             try:
-                self.assertEqual(self.new[i].STRUCK_MIN, 0)
-                self.assertEqual(self.new[i].STRUCK_MAX, 65535)
-                i += 1
-            except:
-                print 'STRUCK MIN/MAX not set properly'
-                break
+                num_seg = len(self.old[n])
+                while m < num_seg:
+                    try:
+                        self.assertEqual(self.new[n][m].STRUCK_MIN, 0)
+                        self.assertEqual(self.new[n][m].STRUCK_MAX, 65535)
+                        m += 1
+                    except Exception, ex:
+                        print 'STRUCK MIN/MAX not set properly, ex =', ex
+                        break
+            except Exception, ex:
+                pass
+            n += 1
         # close while loop
-        
+
     def assertSequenceEqual(self, a, b):
         if len(a) != len(b):
             print 'test will fail'
