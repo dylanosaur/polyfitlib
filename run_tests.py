@@ -8,6 +8,7 @@ def main():
 
     try:
         # function returns list of ps objects
+        # vt for value tests
         vt = AmpOffsetTests()
         if len(vt.new) != len(vt.old):
             print 'ps objects not of same size'
