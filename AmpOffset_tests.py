@@ -7,8 +7,8 @@ import time
 class AmpOffsetTests(unittest.TestCase):
 
     # build ps lists and times it
-    # b/c we're testing only 2 versions
-    # we can have this silly double typed code
+    # fitShot routine should return psList
+    # not data for these tests
     def __init__(self):
         self.start_new = time.time()
         try:
@@ -71,9 +71,8 @@ class AmpOffsetTests(unittest.TestCase):
         else:
             i = 0
             while i < len(a):
-                self.assertEqual(a[i], b[i])
-                if a[i] != b[i]:
-                    i = len(a)
+                try: self.assertEqual(a[i], b[i])
+                except: break
                 i += 1
 
     def assert2DMatrixEqual(self, a, b):
@@ -86,7 +85,7 @@ class AmpOffsetTests(unittest.TestCase):
                 try:
                     self.assertSequenceEqual(a[i], b[i])
                 except:
-                    i = rows
+                    break
                 i += 1
     
 
