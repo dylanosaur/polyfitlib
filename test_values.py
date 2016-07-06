@@ -29,7 +29,7 @@ class AmpOffsetTests(unittest.TestCase):
 
     def test_errNum_values(self):
         n = 0
-        while n < len(ps.old)
+        while n < len(self.old):
             try:
                 self.assertEqual(self.new[n].errNum, self.old[n].errNum)
                 n += 1
@@ -53,8 +53,8 @@ class AmpOffsetTests(unittest.TestCase):
         # close while loop
 
     def test_shapes_values(self):
-        i=0
-        while i < len(self.old)
+        i = 0
+        while i < len(self.old):
             try:
                 self.assertSequenceEqual(self.old[i].str_voltData.shape, self.new[i].str_voltData.shape)
                 i += 1
@@ -77,14 +77,13 @@ class AmpOffsetTests(unittest.TestCase):
 
     def assert2DMatrixEqual(self, a, b):
         rows = len(a)
-        test_ind = 0
         if len(a) != len(b):
             print 'test will fail'
         else:
             i = 0
             while i < rows:
                 try:
-                    self.assertSequenceEqual(a[i],b[i])
+                    self.assertSequenceEqual(a[i], b[i])
                 except:
                     i = rows
                 i += 1
