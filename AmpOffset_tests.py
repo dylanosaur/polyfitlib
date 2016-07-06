@@ -71,8 +71,10 @@ class AmpOffsetTests(unittest.TestCase):
         else:
             i = 0
             while i < len(a):
-                try: self.assertEqual(a[i], b[i])
-                except: break
+                try:
+                    self.assertEqual(a[i], b[i])
+                except:
+                    break
                 i += 1
 
     def assert2DMatrixEqual(self, a, b):
