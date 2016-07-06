@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65f58065-801e-4bfd-a18d-4fa11fb9232a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_tests.py" afterPath="$PROJECT_DIR$/run_tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_values.py" afterPath="$PROJECT_DIR$/test_values.py" />
     </list>
     <ignored path="polyfitlib.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -372,7 +370,8 @@
     <MESSAGE value="aux files added, test scripts modified" />
     <MESSAGE value="cleaning up test files (syntax/styling)" />
     <MESSAGE value="made unit tests less verbose" />
-    <option name="LAST_COMMIT_MESSAGE" value="made unit tests less verbose" />
+    <MESSAGE value="style changes to test values" />
+    <option name="LAST_COMMIT_MESSAGE" value="style changes to test values" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
