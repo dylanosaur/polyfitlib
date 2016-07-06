@@ -302,17 +302,17 @@ def fitPolySeg(ps, specFlag = "tsc"):
     """
     try:
         calcAmpOffset(ps)
-        calcVoltageFromRawData(ps)
-        calc_t0(ps)
-        calcTransMask(ps)
-        calcNumPhotons(ps)
-        filterChans(ps)
-	#calcACPhotons(ps)
-        calcScatteringAngle(ps)
-        calcLambdaArray(ps)
-        calcTeNeInitVals(ps, 10.0, specFlag)
-        calcMostProbable_neTe(ps, specFlag)
-        calcNeTeValuesWithErrors(ps, specFlag)
+        #calcVoltageFromRawData(ps)
+        #calc_t0(ps)
+        #calcTransMask(ps)
+        #calcNumPhotons(ps)
+        #filterChans(ps)
+	    #calcACPhotons(ps)
+        #calcScatteringAngle(ps)
+        #calcLambdaArray(ps)
+        #calcTeNeInitVals(ps, 10.0, specFlag)
+        #calcMostProbable_neTe(ps, specFlag)
+        #calcNeTeValuesWithErrors(ps, specFlag)
     except Exception, ex:
         # If we haven't set an error number, it is an unknown error. 
         if ps.errNum == 0:
