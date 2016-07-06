@@ -1,14 +1,14 @@
 # Written by Dylan Adams on 07/01/16
 # This program runs the testing scripts, currenlty just value tests
 
-from test_values import My_AmpOffset_Tests
+from test_values import AmpOffsetTests
 
 
 def main():
 
     try:
         # function returns list of ps objects
-        vt = My_AmpOffset_Tests()
+        vt = AmpOffsetTests()
         print 'starting testing suite'
         if len(vt.new) != len(vt.old):
             print 'ps objects not of same size'
