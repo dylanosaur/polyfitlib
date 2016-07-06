@@ -105,9 +105,7 @@ class AmpOffsetTests(unittest.TestCase):
         i = 0
         while i < len(self.old):
             try:
-                self.assertEqual(self.old[i].STRUCK_MIN, 0)
                 self.assertEqual(self.new[i].STRUCK_MIN, 0)
-                self.assertEqual(self.old[i].STRUCK_MAX, 65535)
                 self.assertEqual(self.new[i].STRUCK_MAX, 65535)
                 i += 1
             except:
