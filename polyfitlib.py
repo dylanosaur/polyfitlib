@@ -260,7 +260,7 @@ def fitShot(shotNum, specFlag = "tsc", numProcs = None, burstLen = 0):
     #except Exception, ex:
     #    print "Failed to write output: %s" % ex
 
-    return psList
+    return Data
     
     
 def fitPSstar(tup_in):
