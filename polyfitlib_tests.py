@@ -274,6 +274,8 @@ def fitWithWarnings(ps):
 
     Returns: The polySegData object
     """
+    ps.STRUCK_MIN = 0
+    ps.STRUCK_MAX = 65535
     if 1:
         calcAmpOffset(ps)
         calcVoltageFromRawData(ps)
@@ -619,6 +621,7 @@ def _calcCharPulseBeginAndEnd(charPulse, polynum):
 
 from numpy import array, average, sum, max, min, ndarray, abs, sqrt, absolute
 from scipy.optimize import leastsq
+
 def calcNumPhotons(ps):
     """Function fits the raw data of each APD with a polynomial and scaled
     characteristic pulse.

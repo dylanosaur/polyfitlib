@@ -63,6 +63,15 @@ class AmpOffsetTests(unittest.TestCase):
                 print 'shapes (array dimensions) values mismatch, psNum=', i, 'ex=', ex
                 break
 
+    def test_chanFlagDC_values(self):
+        i = 0
+        while i < len(self.old):
+            try:
+                self.assertSequenceEqual(self.old[i].chanFlagDC, self.new[i].chanFlagDC)
+                i += 1
+            except Exception, ex:
+                print 'chanFlagDC values mismatch, psNum=', i, 'ex=', ex
+                break
         
         
     def assertSequenceEqual(self, a, b):
