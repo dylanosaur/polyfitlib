@@ -357,7 +357,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="style changes to test values" />
     <MESSAGE value="commented out functions past amp offset in pfl original (no suffix)" />
     <MESSAGE value="commented out import statements in __init__ file" />
     <MESSAGE value="make pfl original return psList&#10;commented out save commands" />
@@ -382,7 +381,8 @@
     <MESSAGE value="Data should've been data..." />
     <MESSAGE value="loop variable problems... m -&gt; n" />
     <MESSAGE value="ampOffset tests now working and actually checking some data arrays that are useful" />
-    <option name="LAST_COMMIT_MESSAGE" value="ampOffset tests now working and actually checking some data arrays that are useful" />
+    <MESSAGE value="structure updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="structure updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
