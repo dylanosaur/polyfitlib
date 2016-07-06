@@ -249,18 +249,18 @@ def fitShot(shotNum, specFlag = "tsc", numProcs = None, burstLen = 0):
         map(fitPolySeg, psList)
 
     print "Saving data to MDSplus."
-    try:
-        saveToMDSplus(data)
-    except Exception, ex:
-        print "MDSplus save failed: %s" % ex
+    #try:
+    #    saveToMDSplus(data)
+    #except Exception, ex:
+    #    print "MDSplus save failed: %s" % ex
 
-    print "Writing output file."
-    try:
-        writeOutputFile(data)
-    except Exception, ex:
-        print "Failed to write output: %s" % ex
+    #print "Writing output file."
+    #try:
+    #    writeOutputFile(data)
+    #except Exception, ex:
+    #    print "Failed to write output: %s" % ex
 
-    return data
+    return psList
     
     
 def fitPSstar(tup_in):
