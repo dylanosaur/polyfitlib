@@ -42,23 +42,29 @@ class My_AmpOffset_Tests(unittest.TestCase):
         
         
     def assertSequenceEqual(self, a, b):
+        test_ind = 0
         if len(a) != len(b):
             print 'test will fail'
         else:
             i = 0
-            while i<len(a):
+            while i < len(a):
                 self.assertEqual(a[i], b[i])
+                if a[i] != b[i]:
+                    i = len(a)
                 i += 1
         return None
 
     def assert2DMatrixEqual(self, a, b):
         rows = len(a)
+        test_ind = 0
         if len(a) != len(b):
             print 'test will fail'
         else:
             i = 0
-            while i<rows:
-                self.assertSequenceEqual(a[i],b[i])
+            while i < rows:
+                try: self.assertSequenceEqual(a[i],b[i])
+                except: test_ind = 1
+                if test_ind = 1: i = rows
                 i += 1
         return None
     
