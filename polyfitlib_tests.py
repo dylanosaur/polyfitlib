@@ -260,11 +260,7 @@ def fitShot(shotNum, specFlag = "tsc", numProcs = None, burstLen = 0):
 
     return data
     
-    
-def fitPSstar(tup_in):
-    # takes a tuple input (ps, specFlag) and passes
-    # the elements to fitPolySeg
-    return fitPolySeg(*tup_in)
+from  FitPSstar import fitPSstar
 
 def fitWithWarnings(ps):
     """Fit a single poly and segment.

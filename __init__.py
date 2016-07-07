@@ -1,6 +1,6 @@
 try:
     #from ACPhotons import calcACPhotons
-    #from AmpOffset import calcAmpOffset
+    from AmpOffset import calcAmpOffset
     #from _CharPulseBeginAndEnd import _calcCharPulseBeginAndEnd
     #from FilterChans import filterChans
     #from _GetACDataAndCharPulse import _getACDataAndCharPulse
@@ -38,7 +38,7 @@ __all__ = ['calcACPhotons', 'calcAmpOffset', '_calcCharPulseBeginAndEnd',
 
 try:
     #from FitPolySeg import fitPolySeg
-    #from FitPSstar import fitPSstar
+    from FitPSstar import fitPSstar
     #from FitWithWarnings import fitWithWarnings
 except Exception, ex:
     print 'fitOps module not loaded correctly, error: ', ex
