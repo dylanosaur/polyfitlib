@@ -53,7 +53,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_errNum_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for errNum test'
-            a = self.new[n][m].errNum
+            a = self.old[n][m].errNum
             b = self.new[n][m].errNum
             self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -61,7 +61,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_chanFlagDC_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for chanFlagDC test'
-            a = self.new[n][m].chanFlagDC
+            a = self.old[n][m].chanFlagDC
             b = self.new[n][m].chanFlagDC
             self.assertSequenceEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -69,7 +69,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_chanFlagAC_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for chanFlagAC test'
-            a = self.new[n][m].chanFlagAC
+            a = self.old[n][m].chanFlagAC
             b = self.new[n][m].chanFlagAC
             self.assertSequenceEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -77,7 +77,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_satChans_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for satChans test'
-            a = self.new[n][m].satChans
+            a = self.old[n][m].satChans
             b = self.new[n][m].satChans
             self.assertSequenceEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -85,7 +85,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_satChansDark_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for satChansDark test'
-            a = self.new[n][m].satChansDark
+            a = self.old[n][m].satChansDark
             b = self.new[n][m].satChansDark
             self.assertSequenceEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -93,7 +93,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_str_offsetVolt_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for str_offsetVolt test'
-            a = self.new[n][m].str_offsetVolt
+            a = self.old[n][m].str_offsetVolt
             b = self.new[n][m].str_offsetVolt
             self.assertSequenceEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -101,7 +101,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_str_ampOffset_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for str_ampOffset test'
-            a = self.new[n][m].str_ampOffset
+            a = self.old[n][m].str_ampOffset
             b = self.new[n][m].str_ampOffset
             self.assertSequenceEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -109,7 +109,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_acq_offsetVolt_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for acq_offsetVolt test'
-            a = self.new[n][m].acq_offsetVolt
+            a = self.old[n][m].acq_offsetVolt
             b = self.new[n][m].acq_offsetVolt
             self.assertSequenceEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -117,7 +117,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_acq_ampOffset_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for acq_ampOffset test'
-            a = self.new[n][m].acq_ampOffset
+            a = self.old[n][m].acq_ampOffset
             b = self.new[n][m].acq_ampOffset
             self.assertSequenceEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -125,7 +125,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_STRUCK_MIN_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for STRUCK_MIN test'
-            a = self.new[n][m].STRUCK_MIN
+            a = self.old[n][m].STRUCK_MIN
             b = self.new[n][m].STRUCK_MIN
             self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -133,7 +133,7 @@ class AmpOffsetTests(unittest.TestCase):
     def check_STRUCK_MAX_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for STRUCK_MAX test'
-            a = self.new[n][m].STRUCK_MAX
+            a = self.old[n][m].STRUCK_MAX
             b = self.new[n][m].STRUCK_MAX
             self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:

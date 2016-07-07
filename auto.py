@@ -6,7 +6,7 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
-path = './T0.py'
+path = './AmpOffset.py'
 
 def build_tests():
     dir = ps_methods_dir()
