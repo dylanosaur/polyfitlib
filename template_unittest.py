@@ -43,7 +43,8 @@ class TemplateTests(unittest.TestCase):
             for m in xrange(0,num_seg):
                 try:
                     it_handler(self, method, n, m)
-                except:
+                except Exception, ex:
+                    print method, 'test failed ex=', ex
                     break
         finish = time.time()
         print 'time for test:', finish-start
@@ -56,10 +57,7 @@ class TemplateTests(unittest.TestCase):
         else:
             i = 0
             while i < len(a):
-                try:
-                    self.assertEqual(a[i], b[i])
-                except:
-                    break
+                self.assertEqual(a[i], b[i])
                 i += 1
 
     def assert2DMatrixEqual(self, a, b):
@@ -69,10 +67,7 @@ class TemplateTests(unittest.TestCase):
         else:
             i = 0
             while i < rows:
-                try:
-                    self.assertSequenceEqual(a[i], b[i])
-                except:
-                    break
+                self.assertSequenceEqual(a[i], b[i])
                 i += 1
 
 

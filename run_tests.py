@@ -1,6 +1,40 @@
 # Written by Dylan Adams on 07/01/16
 # This program runs the testing scripts, currenlty just value tests
 
+from FilterChans_tests import FilterChansTests
+
+def run_FilterChans():
+
+    try:
+        # function returns list of ps objects
+        # vt for value tests
+        vt = FilterChansTests()
+        if len(vt.new) != len(vt.old):
+            print 'ps objects not of same size'
+        else:
+            pass
+    except Exception, ex:
+        print 'load test object failed:', ex
+
+    try:
+        vt.iterate_method(method='errNum')
+        vt.iterate_method(method='chanFlagDC')
+        vt.iterate_method(method='chanFlagAC')
+        vt.iterate_method(method='str_voltData')
+        vt.iterate_method(method='scatPhotonsDC')
+        vt.iterate_method(method='scatPhotonsAC')
+        vt.iterate_method(method='bgPhotons')
+        vt.iterate_method(method='scPhotons_Bayes')
+        vt.iterate_method(method='bgPhotons_Bayes')
+        vt.iterate_method(method='fqe_Bayes')
+        vt.iterate_method(method='trans_Bayes')
+    except Exception, ex:
+        print 'test failed, ex=', ex
+
+    return vt
+
+
+
 from NumPhotons_tests import NumPhotonsTests
 
 def run_NumPhotons():

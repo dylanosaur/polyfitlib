@@ -74,10 +74,7 @@ class VoltageFromRawDataTests(unittest.TestCase):
         else:
             i = 0
             while i < len(a):
-                try:
-                    self.assertEqual(a[i], b[i])
-                except:
-                    break
+                self.assertEqual(a[i], b[i])
                 i += 1
 
     def assert2DMatrixEqual(self, a, b):
@@ -87,10 +84,7 @@ class VoltageFromRawDataTests(unittest.TestCase):
         else:
             i = 0
             while i < rows:
-                try:
-                    self.assertSequenceEqual(a[i], b[i])
-                except:
-                    break
+                self.assertSequenceEqual(a[i], b[i])
                 i += 1
 
 

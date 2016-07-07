@@ -6,7 +6,7 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
-path = './NumPhotons.py'
+path = './FilterChans.py'
 
 def build_tests():
     dir = ps_methods_dir()

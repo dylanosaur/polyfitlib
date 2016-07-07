@@ -306,7 +306,7 @@ def fitPolySeg(ps, specFlag = "tsc"):
         calc_t0(ps)
         calcTransMask(ps)
         calcNumPhotons(ps)
-        #filterChans(ps)
+        filterChans(ps)
 	    #calcACPhotons(ps)
         #calcScatteringAngle(ps)
         #calcLambdaArray(ps)
