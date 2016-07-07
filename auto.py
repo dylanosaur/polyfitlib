@@ -39,9 +39,9 @@ def build_it_handler():
         method = occ[i][3:word_size]
         indent = '    ' # 4 spaces
         print indent+"if method == '"+method+"':"
-        print indent+"    try: self.check_"+method+"_values(n, m)"
-        print indent+"    except Exception, ex:"
-        print indent+"        print method, 'test failed ex=', ex"
+        print indent+"    self.check_"+method+"_values(n, m)"
+        #print indent+"    except Exception, ex:"
+        #print indent+"        print method, 'test failed ex=', ex"
         #print indent+"        break"
         i += 1
 

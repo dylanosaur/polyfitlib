@@ -43,7 +43,8 @@ class NumPhotonsTests(unittest.TestCase):
             for m in xrange(0,num_seg):
                 try:
                     it_handler(self, method, n, m)
-                except:
+                except Exception, ex:
+                    print method, 'test failed ex=', ex
                     break
         finish = time.time()
         print 'time for test:', finish-start
