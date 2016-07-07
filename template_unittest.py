@@ -36,6 +36,44 @@ class TemplateTests(unittest.TestCase):
         start = time.time()
         num_poly = len(self.old)
         for n in xrange(0,num_poly):
-# Iteration handler
+            try:
+                num_seg = len(self.old[n])
+            except Exception, empty:
+                continue
+            for m in xrange(0,num_seg):
 
-# Build tests
+# Iteration handler code
+
+        finish = time.time()
+        print 'time for test:', finish-start
+
+# Build tests code
+
+    def assertSequenceEqual(self, a, b):
+        if len(a) != len(b):
+            print 'test will fail'
+        else:
+            i = 0
+            while i < len(a):
+                try:
+                    self.assertEqual(a[i], b[i])
+                except:
+                    break
+                i += 1
+
+    def assert2DMatrixEqual(self, a, b):
+        rows = len(a)
+        if len(a) != len(b):
+            print 'test will fail'
+        else:
+            i = 0
+            while i < rows:
+                try:
+                    self.assertSequenceEqual(a[i], b[i])
+                except:
+                    break
+                i += 1
+
+
+if __name__ == '__main__':
+    unittest.main()

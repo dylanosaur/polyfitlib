@@ -46,7 +46,7 @@ except:
 import warnings
 warnings.simplefilter("ignore")
 
-
+from FitPSstar import fitPSstar
 
 def getLaserFireTimes(shotNum, burstLen = 0):
     """Find the times at which the laser fired based on the laser diode for the
@@ -259,8 +259,6 @@ def fitShot(shotNum, specFlag = "tsc", numProcs = None, burstLen = 0):
     #    print "Failed to write output: %s" % ex
 
     return data
-    
-from  FitPSstar import fitPSstar
 
 def fitWithWarnings(ps):
     """Fit a single poly and segment.

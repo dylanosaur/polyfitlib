@@ -11,6 +11,7 @@ def calcVoltageFromRawData(ps):
     """
     # Create an unitialized array of floats (the default) of the same shape as
     # the raw data.
+
     ps.str_voltData = ndarray(shape=ps.str_rawData.shape)
     ps.acq_voltData = ndarray(shape=ps.acq_rawData.shape)
 

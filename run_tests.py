@@ -16,11 +16,7 @@ def run_VoltageFromRawData():
         print 'load test object failed:', ex
 
     try:
-        vt.iterate_method(method='errNum')
-        vt.iterate_method(method='str_ampOffset')
-        vt.iterate_method(method='acq_ampOffset')
         vt.iterate_method(method='str_voltData')
-        vt.iterate_method(method='acq_voltData')
     except Exception, ex:
         print 'test failed, ex=', ex
 

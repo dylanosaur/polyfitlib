@@ -41,62 +41,10 @@ class AmpOffsetTests(unittest.TestCase):
             except Exception, empty:
                 continue
             for m in xrange(0,num_seg):
-		    if method == 'chanFlagDC':
-		        try: self.check_chanFlagDC_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'chanFlagAC':
-		        try: self.check_chanFlagAC_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'satChans':
-		        try: self.check_satChans_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'satChansDark':
-		        try: self.check_satChansDark_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'str_offsetVolt':
-		        try: self.check_str_offsetVolt_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'str_ampOffset':
-		        try: self.check_str_ampOffset_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'acq_offsetVolt':
-		        try: self.check_acq_offsetVolt_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'acq_ampOffset':
-		        try: self.check_acq_ampOffset_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'STRUCK_MIN':
-		        try: self.check_STRUCK_MIN_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'STRUCK_MAX':
-		        try: self.check_STRUCK_MAX_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-		    if method == 'errNum':
-		        try: self.check_errNum_values(n, m)
-		        except Exception, ex:
-		            print method, 'test failed ex=', ex
-		            break
-
+                try:
+                    it_handler(self, method, n, m)
+                except:
+                    break
         finish = time.time()
         print 'time for test:', finish-start
 
@@ -219,3 +167,50 @@ class AmpOffsetTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+def it_handler(test_obj, method, n, m):
+    self = test_obj
+    if method == 'errNum':
+        try: self.check_errNum_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'chanFlagDC':
+        try: self.check_chanFlagDC_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'chanFlagAC':
+        try: self.check_chanFlagAC_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'satChans':
+        try: self.check_satChans_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'satChansDark':
+        try: self.check_satChansDark_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'str_offsetVolt':
+        try: self.check_str_offsetVolt_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'str_ampOffset':
+        try: self.check_str_ampOffset_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'acq_offsetVolt':
+        try: self.check_acq_offsetVolt_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'acq_ampOffset':
+        try: self.check_acq_ampOffset_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'STRUCK_MIN':
+        try: self.check_STRUCK_MIN_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 'STRUCK_MAX':
+        try: self.check_STRUCK_MAX_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex

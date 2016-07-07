@@ -6,7 +6,7 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
-path = './VoltageFromRawData.py'
+path = './AmpOffset.py'
 
 def build_tests():
     dir = ps_methods_dir()
@@ -36,12 +36,12 @@ def build_it_handler():
     while i < len(occ):
         word_size = len(occ[i])
         method = occ[i][3:word_size]
-        indent = '\t'
-        print indent+"\t    if method == '"+method+"':"
-        print indent+"\t        try: self.check_"+method+"_values(n, m)"
-        print indent+"\t        except Exception, ex:"
-        print indent+"\t            print method, 'test failed ex=', ex"
-        print indent+"\t            break"
+        indent = '    ' # 4 spaces
+        print indent+"if method == '"+method+"':"
+        print indent+"    try: self.check_"+method+"_values(n, m)"
+        print indent+"    except Exception, ex:"
+        print indent+"        print method, 'test failed ex=', ex"
+        #print indent+"        break"
         i += 1
 
 def build_runner():
