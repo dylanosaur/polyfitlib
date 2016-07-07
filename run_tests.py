@@ -19,16 +19,16 @@ def main():
 
     try:
         vt.iterate_method(method='errNum')
-	    vt.iterate_method(method='chanFlagDC')
-	    vt.iterate_method(method='chanFlagAC')
-	    vt.iterate_method(method='satChans')
-	    vt.iterate_method(method='satChansDark')
-	    vt.iterate_method(method='str_offsetVolt')
-	    vt.iterate_method(method='str_ampOffset')
-	    vt.iterate_method(method='acq_offsetVolt')
-	    vt.iterate_method(method='acq_ampOffset')
-	    vt.iterate_method(method='STRUCK_MIN')
-	    vt.iterate_method(method='STRUCK_MAX')
+        vt.iterate_method(method='chanFlagDC')
+        vt.iterate_method(method='chanFlagAC')
+        vt.iterate_method(method='satChans')
+        vt.iterate_method(method='satChansDark')
+        vt.iterate_method(method='str_offsetVolt')
+        vt.iterate_method(method='str_ampOffset')
+        vt.iterate_method(method='acq_offsetVolt')
+        vt.iterate_method(method='acq_ampOffset')
+        vt.iterate_method(method='STRUCK_MIN')
+        vt.iterate_method(method='STRUCK_MAX')
     except Exception, ex:
         print 'test failed, ex=', ex
 
