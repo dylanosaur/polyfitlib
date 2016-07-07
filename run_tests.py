@@ -1,6 +1,29 @@
 # Written by Dylan Adams on 07/01/16
 # This program runs the testing scripts, currenlty just value tests
 
+from VoltageFromRawData_tests import VoltageFromRawDataTests
+
+def run_T0():
+
+    try:
+        # function returns list of ps objects
+        # vt for value tests
+        vt = T0Tests()
+        if len(vt.new) != len(vt.old):
+            print 'ps objects not of same size'
+        else:
+            pass
+    except Exception, ex:
+        print 'load test object failed:', ex
+
+    try:
+        vt.iterate_method(method='t0_dc')
+        vt.iterate_method(method='t0_ac')
+    except Exception, ex:
+        print 'test failed, ex=', ex
+
+    return vt
+
 
 
 from VoltageFromRawData_tests import VoltageFromRawDataTests

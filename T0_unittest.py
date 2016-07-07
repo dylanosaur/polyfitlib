@@ -4,7 +4,7 @@ import polyfitlib as opfl
 import time
 
 
-class TemplateTests(unittest.TestCase):
+class T0Tests(unittest.TestCase):
 
     # build ps lists and times it
     # fitShot routine should return psList
@@ -49,6 +49,30 @@ class TemplateTests(unittest.TestCase):
         print 'time for test:', finish-start
 
 # Build tests code
+    def check_errNum_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for errNum test'
+            a = self.new[n][m].errNum
+            b = self.new[n][m].errNum
+            self.assertEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for errNum test'
+    def check_t0_dc_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for t0_dc test'
+            a = self.new[n][m].t0_dc
+            b = self.new[n][m].t0_dc
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for t0_dc test'
+    def check_t0_ac_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for t0_ac test'
+            a = self.new[n][m].t0_ac
+            b = self.new[n][m].t0_ac
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for t0_ac test'
 
     def assertSequenceEqual(self, a, b):
         if len(a) != len(b):
@@ -81,5 +105,18 @@ if __name__ == '__main__':
 
 def it_handler(test_obj, method, n, m):
     self = test_obj
+    if method == 'errNum':
+        try: self.check_errNum_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 't0_dc':
+        try: self.check_t0_dc_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+    if method == 't0_ac':
+        try: self.check_t0_ac_values(n, m)
+        except Exception, ex:
+            print method, 'test failed ex=', ex
+
 
     # IT handler code

@@ -366,7 +366,6 @@ from scipy import polyfit, polyval
 from numpy import arange, sum, where, floor
 from T0 import calc_t0
 
-
 from numpy import arange, square
 def _polyPulseFitFn((A, B, C, D), charPulse):
     """Function used to fit the pulse data for an APD with characteristic pulse
