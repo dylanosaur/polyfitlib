@@ -17,13 +17,19 @@ def main():
     except Exception, ex:
         print 'load test object failed:', ex
 
-        # run main tests
-    vt.test_errNum_values()
-    #vt.test_str_offsetRaw_values()
-    #vt.test_str_offsetVolt_values()
-    #vt.test_str_ampOffset_values()
-    #vt.test_shapes_values()
-    #vt.test_chanFlagDC_values()
-    vt.test_globals_values()
+    try:
+        vt.iterate_method(method='errNum')
+        vt.iterate_method(method='chanFlagDC')
+        vt.iterate_method(method='chanFlagAC')
+        vt.iterate_method(method='satChans')
+        vt.iterate_method(method='satChansDark')
+        vt.iterate_method(method='str_offsetVolt')
+        vt.iterate_method(method='str_ampOffset')
+        vt.iterate_method(method='acq_offsetVolt')
+        vt.iterate_method(method='acq_ampOffset')
+        vt.iterate_method(method='STRUCK_MIN')
+        vt.iterate_method(method='STRUCK_MAX')
+    except Exception, ex:
+        print 'test failed, ex=', ex
 
     return vt
