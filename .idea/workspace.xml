@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65f58065-801e-4bfd-a18d-4fa11fb9232a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auto.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template_unittest.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/load_new_and_prev_versions.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmpOffset_tests.py" afterPath="$PROJECT_DIR$/AmpOffset_tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parser.py" afterPath="$PROJECT_DIR$/parser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_tests.py" afterPath="$PROJECT_DIR$/run_tests.py" />
-    </list>
+    <list default="true" id="65f58065-801e-4bfd-a18d-4fa11fb9232a" name="Default" comment="" />
     <ignored path="polyfitlib.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -364,12 +356,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="724" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32575756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32575756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -395,7 +387,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commented out import statements in __init__ file" />
     <MESSAGE value="make pfl original return psList&#10;commented out save commands" />
     <MESSAGE value="commented out print statement in save routine" />
     <MESSAGE value="rewrote most of test scripts" />
@@ -420,7 +411,8 @@
     <MESSAGE value="ampOffset tests now working and actually checking some data arrays that are useful" />
     <MESSAGE value="structure updates" />
     <MESSAGE value="incorporated test code from program" />
-    <option name="LAST_COMMIT_MESSAGE" value="incorporated test code from program" />
+    <MESSAGE value="auto generates tests&#10;removed load new and prev versions&#10;parser improved, test building part moved to auto&#10;saved a template for future unit tests&#10;run tests script is now based on generated output from auto" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto generates tests&#10;removed load new and prev versions&#10;parser improved, test building part moved to auto&#10;saved a template for future unit tests&#10;run tests script is now based on generated output from auto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
