@@ -22,7 +22,7 @@ def build_tests():
         print indent+'def check_'+ method +'_values(self, n, m):'
         print indent+'    if n ==1 and m ==0:'
         print indent+"        print 'sequence assert starting for", method, "test'"
-        print indent+"        a = self.new[n][m]."+method
+        print indent+"        a = self.old[n][m]."+method
         print indent+"        b = self.new[n][m]."+method
         print indent+"        self.assert"+type+"Equal(a, b)"
         print indent+"    if n == len(self.old)-1 and m == len(self.old[n])-1:"

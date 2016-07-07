@@ -52,7 +52,7 @@ class T0Tests(unittest.TestCase):
     def check_errNum_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for errNum test'
-            a = self.new[n][m].errNum
+            a = self.old[n][m].errNum
             b = self.new[n][m].errNum
             self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
@@ -60,19 +60,21 @@ class T0Tests(unittest.TestCase):
     def check_t0_dc_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for t0_dc test'
-            a = self.new[n][m].t0_dc
+            a = self.old[n][m].t0_dc
             b = self.new[n][m].t0_dc
             self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
             print 'sequence assert complete for t0_dc test'
+
     def check_t0_ac_values(self, n, m):
         if n ==1 and m ==0:
             print 'sequence assert starting for t0_ac test'
-            a = self.new[n][m].t0_ac
+            a = self.old[n][m].t0_ac
             b = self.new[n][m].t0_ac
             self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
             print 'sequence assert complete for t0_ac test'
+
 
     def assertSequenceEqual(self, a, b):
         if len(a) != len(b):
