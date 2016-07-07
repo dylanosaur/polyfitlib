@@ -18,6 +18,7 @@ def build_tests():
         method = occ[i][3:word_size]
         type = 'Sequence'
         if method == 'errNum' or method == 'STRUCK_MIN' or method == 'STRUCK_MAX': type = ''
+        if method == 't0_dc' or method == 't0_ac': type = ''
         print indent+'def check_'+ method +'_values(self, n, m):'
         print indent+'    if n ==1 and m ==0:'
         print indent+"        print 'sequence assert starting for", method, "test'"

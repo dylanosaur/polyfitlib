@@ -1,7 +1,7 @@
 # Written by Dylan Adams on 07/01/16
 # This program runs the testing scripts, currenlty just value tests
 
-from VoltageFromRawData_tests import VoltageFromRawDataTests
+from T0_tests import T0Tests
 
 def run_T0():
 

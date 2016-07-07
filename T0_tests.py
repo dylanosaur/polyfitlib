@@ -62,7 +62,7 @@ class T0Tests(unittest.TestCase):
             print 'sequence assert starting for t0_dc test'
             a = self.new[n][m].t0_dc
             b = self.new[n][m].t0_dc
-            self.assertSequenceEqual(a, b)
+            self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
             print 'sequence assert complete for t0_dc test'
     def check_t0_ac_values(self, n, m):
@@ -70,7 +70,7 @@ class T0Tests(unittest.TestCase):
             print 'sequence assert starting for t0_ac test'
             a = self.new[n][m].t0_ac
             b = self.new[n][m].t0_ac
-            self.assertSequenceEqual(a, b)
+            self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
             print 'sequence assert complete for t0_ac test'
 
