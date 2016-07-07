@@ -17,6 +17,7 @@ def run_T0():
         print 'load test object failed:', ex
 
     try:
+        vt.iterate_method(method='errNum')
         vt.iterate_method(method='t0_dc')
         vt.iterate_method(method='t0_ac')
     except Exception, ex:
