@@ -1,26 +1,6 @@
 # Program written 07/06/16 by Dylan Adams
 # Will process file and find all occurrences of keywords
 
-def build_tests():
-    dir = ps_methods_dir()
-    occ = find_occ('./AmpOffset.py', dir)
-    i = 0
-    while i < len(occ):
-        word_size = len(occ[i])
-        method = occ[i][3:word_size]
-        print 'def check_'+ method +'_values(self):'
-        # print '\t num_items = len(self.new[n][m].'+method+')'
-        new_seq = 'self.new[n][m].' + method
-        old_seq = 'self.old[n][m].' + method
-        print '\t try: '
-        print '\t \t self.assertSequenceEqual('+new_seq+',', old_seq+ ')'
-        print "\t \t print 'sequence assert complete for "+method+"'"
-        print '\t except Exception, ex:'
-        print "\t \t print 'sequence assert failed for "+method+"'"
-        i += 1
-    return None
-
-
 def help():
     print "occ= p.find_occ('./AmpOffset.py', dir)"
     print "new_kw = p.build_keywords(path)"
@@ -30,6 +10,7 @@ def find_occ(path, kw):
     num_kw = len(kw)
     i = 0
     occ = []
+    occ.append('ps.errNum')
     while i < num_kw:
         list = find_word(path, kw[i])
         if len(list[0]) > 0:

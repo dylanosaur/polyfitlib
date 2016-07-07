@@ -27,100 +27,169 @@ class AmpOffsetTests(unittest.TestCase):
         print 'new time =', self.finish_new - self.start_new
         print 'old time =', self.finish_old - self.start_old
 
-    def test_errNum_values(self):
-        # ps data starts at fitShot_output.data[roa position = 1][segment]
-        n = 0
-        while n < len(self.old):
-            m = 0
+# I have included this method to avoid the double nesting of loops
+# as well as try/except statements
+# since the ps objects have a segment and a polychromator this has
+# maybe saved 4 lines of code per value check method test
+# this also keeps the runner script modular
+    def iterate_method(self, method='chanFlagDC'):
+        start = time.time()
+        num_poly = len(self.old)
+        for n in xrange(0,num_poly):
             try:
                 num_seg = len(self.old[n])
-                while m < num_seg:
-                    try:
-                        self.assertEqual(self.new[n][m].errNum, self.old[n][m].errNum)
-                        m += 1
-                    except Exception, ex:
-                        print 'errNum_values failure, n=', n, 'ex =', ex
-                        break
-            except Exception, ex:
-                pass
-            n += 1
-        # close while loop
+            except Exception, empty:
+                continue
+            for m in xrange(0,num_seg):
+		    if method == 'chanFlagDC':
+		        try: self.check_chanFlagDC_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'chanFlagAC':
+		        try: self.check_chanFlagAC_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'satChans':
+		        try: self.check_satChans_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'satChansDark':
+		        try: self.check_satChansDark_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'str_offsetVolt':
+		        try: self.check_str_offsetVolt_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'str_ampOffset':
+		        try: self.check_str_ampOffset_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'acq_offsetVolt':
+		        try: self.check_acq_offsetVolt_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'acq_ampOffset':
+		        try: self.check_acq_ampOffset_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'STRUCK_MIN':
+		        try: self.check_STRUCK_MIN_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'STRUCK_MAX':
+		        try: self.check_STRUCK_MAX_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
+		    if method == 'errNum':
+		        try: self.check_errNum_values(n, m)
+		        except Exception, ex:
+		            print method, 'test failed ex=', ex
+		            break
 
-    def test_str_offsetVolt_values(self):
-        n = 0
-        while n < len(self.old):
-            m = 0
-            while m < len(self.old[n].str_offsetVolt):
-                try:
-                    self.assert2DMatrixEqual(self.old[n].str_offsetVolt[m], self.new[n].str_offsetVolt[m])
-                    m += 1
-                except Exception, ex:
-                    print 'str_offsetVolt values failure, n=', n, 'm=', m, 'ex =', ex
-                    break
-            n += 1
-        # close while loop
+        finish = time.time()
+        print 'time for test:', finish-start
 
-    def test_str_ampOffset_values(self):
-        n = 0
-        while n < len(self.old):
-            m = 0
-            while m < len(self.old[n].str_ampOffset):
-                try:
-                    self.assert2DMatrixEqual(self.old[n].str_ampOffset[m], self.new[n].str_ampOffset[m])
-                    m += 1
-                except Exception, ex:
-                    print 'str_ampOffset values failure, n=', n, 'm=', m, 'ex =', ex
-                    break
-            n += 1
-        # close while loop
 
-    def test_shapes_values(self):
-        i = 0
-        while i < len(self.old):
-            try:
-                self.assertSequenceEqual(self.old[i].str_offsetRaw.shape, self.new[i].str_offsetRaw.shape)
-                self.assertSequenceEqual(self.old[i].acq_offsetRaw.shape, self.new[i].acq_offsetRaw.shape)
-                i += 1
-            except Exception, ex:
-                print 'shapes (array dimensions) values mismatch, psNum=', i, 'ex=', ex
-                break
-
-    def test_chanFlagDC_values(self):
-        i = 0
-        while i < len(self.old):
-            try:
-                self.assertSequenceEqual(self.old[i].chanFlagDC, self.new[i].chanFlagDC)
-                i += 1
-            except Exception, ex:
-                print 'chanFlagDC values mismatch, psNum=', i, 'ex=', ex
-                break
-
-    def test_globals_values(self):# ps data starts at fitShot_output.data[roa position = 1][segment]
-        n = 0
-        while n < len(self.old):
-            m = 0
-            try:
-                num_seg = len(self.old[n])
-                while m < num_seg:
-                    try:
-                        self.assertEqual(self.new[n][m].STRUCK_MIN, 0)
-                        self.assertEqual(self.new[n][m].STRUCK_MAX, 65535)
-                        m += 1
-                    except Exception, ex:
-                        print 'STRUCK MIN/MAX not set properly, ex =', ex
-                        break
-            except Exception, ex:
-                pass
-            n += 1
-        # close while loop
-
-    # attempting to use autogenerated test code
-    def check_chanFlagDC_values(self):
-        print 'sequence assert starting for chanFlagDC'
-        for n in xrange(0,len(self.old)):
-            for m in xrange(0,len(self.old[n])):
-                self.assertSequenceEqual(self.new[n][m].chanFlagDC, self.old[n][m].chanFlagDC)
-        print 'sequence assert complete for chanFlagDC'
+# prepare yourself for some WET code generated by yours truly
+    def check_errNum_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for errNum test'
+            a = self.new[n][m].errNum
+            b = self.new[n][m].errNum
+            self.assertEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for errNum test'
+    def check_chanFlagDC_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for chanFlagDC test'
+            a = self.new[n][m].chanFlagDC
+            b = self.new[n][m].chanFlagDC
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for chanFlagDC test'
+    def check_chanFlagAC_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for chanFlagAC test'
+            a = self.new[n][m].chanFlagAC
+            b = self.new[n][m].chanFlagAC
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for chanFlagAC test'
+    def check_satChans_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for satChans test'
+            a = self.new[n][m].satChans
+            b = self.new[n][m].satChans
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for satChans test'
+    def check_satChansDark_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for satChansDark test'
+            a = self.new[n][m].satChansDark
+            b = self.new[n][m].satChansDark
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for satChansDark test'
+    def check_str_offsetVolt_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for str_offsetVolt test'
+            a = self.new[n][m].str_offsetVolt
+            b = self.new[n][m].str_offsetVolt
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for str_offsetVolt test'
+    def check_str_ampOffset_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for str_ampOffset test'
+            a = self.new[n][m].str_ampOffset
+            b = self.new[n][m].str_ampOffset
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for str_ampOffset test'
+    def check_acq_offsetVolt_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for acq_offsetVolt test'
+            a = self.new[n][m].acq_offsetVolt
+            b = self.new[n][m].acq_offsetVolt
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for acq_offsetVolt test'
+    def check_acq_ampOffset_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for acq_ampOffset test'
+            a = self.new[n][m].acq_ampOffset
+            b = self.new[n][m].acq_ampOffset
+            self.assertSequenceEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for acq_ampOffset test'
+    def check_STRUCK_MIN_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for STRUCK_MIN test'
+            a = self.new[n][m].STRUCK_MIN
+            b = self.new[n][m].STRUCK_MIN
+            self.assertEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for STRUCK_MIN test'
+    def check_STRUCK_MAX_values(self, n, m):
+        if n ==1 and m ==0:
+            print 'sequence assert starting for STRUCK_MAX test'
+            a = self.new[n][m].STRUCK_MAX
+            b = self.new[n][m].STRUCK_MAX
+            self.assertEqual(a, b)
+        if n == len(self.old)-1 and m == len(self.old[n])-1:
+            print 'sequence assert complete for STRUCK_MAX test'
 
     def assertSequenceEqual(self, a, b):
         if len(a) != len(b):
@@ -146,8 +215,7 @@ class AmpOffsetTests(unittest.TestCase):
                 except:
                     break
                 i += 1
-    
+
 
 if __name__ == '__main__':
     unittest.main()
-
