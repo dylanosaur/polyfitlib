@@ -9,7 +9,7 @@ def build_tests():
         word_size = len(occ[i])
         method = occ[i][3:word_size]
         print 'def check_'+ method +'_values(self):'
-        print '\t num_items = len(self.new[n][m].'+method+')'
+        # print '\t num_items = len(self.new[n][m].'+method+')'
         new_seq = 'self.new[n][m].' + method
         old_seq = 'self.old[n][m].' + method
         print '\t try: '

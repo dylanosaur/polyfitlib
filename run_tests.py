@@ -25,5 +25,9 @@ def main():
     #vt.test_shapes_values()
     #vt.test_chanFlagDC_values()
     vt.test_globals_values()
+    try:
+        vt.check_chanFlagDC_values()
+    except Exception, ex:
+        print 'test chanFlagDC failed, ex=', ex
 
     return vt
