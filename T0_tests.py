@@ -75,8 +75,6 @@ class T0Tests(unittest.TestCase):
         if n == len(self.old)-1 and m == len(self.old[n])-1:
             print 'sequence assert complete for t0_ac test'
 
-
-
     def assertSequenceEqual(self, a, b):
         if len(a) != len(b):
             print 'test will fail'

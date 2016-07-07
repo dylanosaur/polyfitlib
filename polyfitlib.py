@@ -305,7 +305,7 @@ def fitPolySeg(ps, specFlag = "tsc"):
         calcVoltageFromRawData(ps)
         calc_t0(ps)
         calcTransMask(ps)
-        #calcNumPhotons(ps)
+        calcNumPhotons(ps)
         #filterChans(ps)
 	    #calcACPhotons(ps)
         #calcScatteringAngle(ps)

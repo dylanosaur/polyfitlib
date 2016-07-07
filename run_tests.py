@@ -1,6 +1,36 @@
 # Written by Dylan Adams on 07/01/16
 # This program runs the testing scripts, currenlty just value tests
 
+from NumPhotons_tests import NumPhotonsTests
+
+def run_NumPhotons():
+
+    try:
+        # function returns list of ps objects
+        # vt for value tests
+        vt = NumPhotonsTests()
+        if len(vt.new) != len(vt.old):
+            print 'ps objects not of same size'
+        else:
+            pass
+    except Exception, ex:
+        print 'load test object failed:', ex
+
+    try:
+        vt.iterate_method(method='errNum')
+        vt.iterate_method(method='chanFlagDC')
+        vt.iterate_method(method='satChans')
+        vt.iterate_method(method='noPulseFitChans')
+        vt.iterate_method(method='polyPulseCoeffs0')
+        vt.iterate_method(method='polyPulseCoeffsDC')
+        vt.iterate_method(method='scatPhotonsDC')
+        vt.iterate_method(method='bgPhotons')
+        vt.iterate_method(method='errPhotons')
+    except Exception, ex:
+        print 'test failed, ex=', ex
+
+    return vt
+
 from TransMask_tests import TransMaskTests
 
 def run_TransMask():

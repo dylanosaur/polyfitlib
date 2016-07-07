@@ -6,7 +6,7 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
-path = './TransMask.py'
+path = './NumPhotons.py'
 
 def build_tests():
     dir = ps_methods_dir()
@@ -52,5 +52,5 @@ def build_runner():
     while i < len(occ):
         word_size = len(occ[i])
         method = occ[i][3:word_size]
-        print "\tvt.iterate_method(method='"+method+"')"
+        print "        vt.iterate_method(method='"+method+"')"
         i += 1
