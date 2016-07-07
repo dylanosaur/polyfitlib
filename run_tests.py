@@ -1,6 +1,29 @@
 # Written by Dylan Adams on 07/01/16
 # This program runs the testing scripts, currenlty just value tests
 
+from TransMask_tests import TransMaskTests
+
+def run_TransMask():
+
+    try:
+        # function returns list of ps objects
+        # vt for value tests
+        vt = TransMaskTests()
+        if len(vt.new) != len(vt.old):
+            print 'ps objects not of same size'
+        else:
+            pass
+    except Exception, ex:
+        print 'load test object failed:', ex
+
+    try:
+        vt.iterate_method(method='errNum')
+        vt.iterate_method(method='calib_trans')
+    except Exception, ex:
+        print 'test failed, ex=', ex
+
+    return vt
+
 from T0_tests import T0Tests
 
 def run_T0():

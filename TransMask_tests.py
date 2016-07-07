@@ -4,7 +4,7 @@ import polyfitlib as opfl
 import time
 
 
-class T0Tests(unittest.TestCase):
+class TransMaskTests(unittest.TestCase):
 
     # build ps lists and times it
     # fitShot routine should return psList
@@ -57,25 +57,14 @@ class T0Tests(unittest.TestCase):
             self.assertEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
             print 'sequence assert complete for errNum test'
-    def check_t0_dc_values(self, n, m):
+    def check_calib_trans_values(self, n, m):
         if n ==1 and m ==0:
-            print 'sequence assert starting for t0_dc test'
-            a = self.old[n][m].t0_dc
-            b = self.new[n][m].t0_dc
-            self.assertEqual(a, b)
+            print '2DMatrix assert starting for calib_trans test'
+            a = self.old[n][m].calib.trans
+            b = self.new[n][m].calib.trans
+            self.assert2DMatrixEqual(a, b)
         if n == len(self.old)-1 and m == len(self.old[n])-1:
-            print 'sequence assert complete for t0_dc test'
-
-    def check_t0_ac_values(self, n, m):
-        if n ==1 and m ==0:
-            print 'sequence assert starting for t0_ac test'
-            a = self.old[n][m].t0_ac
-            b = self.new[n][m].t0_ac
-            self.assertEqual(a, b)
-        if n == len(self.old)-1 and m == len(self.old[n])-1:
-            print 'sequence assert complete for t0_ac test'
-
-
+            print '2DMatrix assert complete for calib_trans test'
 
     def assertSequenceEqual(self, a, b):
         if len(a) != len(b):
@@ -112,14 +101,8 @@ def it_handler(test_obj, method, n, m):
         try: self.check_errNum_values(n, m)
         except Exception, ex:
             print method, 'test failed ex=', ex
-    if method == 't0_dc':
-        try: self.check_t0_dc_values(n, m)
+    if method == 'calib_trans':
+        try: self.check_calib_trans_values(n, m)
         except Exception, ex:
             print method, 'test failed ex=', ex
-    if method == 't0_ac':
-        try: self.check_t0_ac_values(n, m)
-        except Exception, ex:
-            print method, 'test failed ex=', ex
-
-
     # IT handler code
