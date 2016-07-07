@@ -1,10 +1,34 @@
 # Written by Dylan Adams on 07/01/16
 # This program runs the testing scripts, currenlty just value tests
+from VoltageFromRawData_tests import VoltageFromRawDataTests
+
+def run_VoltageFromRawData():
+
+    try:
+        # function returns list of ps objects
+        # vt for value tests
+        vt = VoltageFromRawDataTests()
+        if len(vt.new) != len(vt.old):
+            print 'ps objects not of same size'
+        else:
+            pass
+    except Exception, ex:
+        print 'load test object failed:', ex
+
+    try:
+        vt.iterate_method(method='errNum')
+        vt.iterate_method(method='str_ampOffset')
+        vt.iterate_method(method='acq_ampOffset')
+        vt.iterate_method(method='str_voltData')
+        vt.iterate_method(method='acq_voltData')
+    except Exception, ex:
+        print 'test failed, ex=', ex
+
+    return vt
 
 from AmpOffset_tests import AmpOffsetTests
 
-
-def main():
+def run_AmpOffset():
 
     try:
         # function returns list of ps objects

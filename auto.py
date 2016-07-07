@@ -6,9 +6,11 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
+path = './VoltageFromRawData.py'
+
 def build_tests():
     dir = ps_methods_dir()
-    occ = find_occ('./AmpOffset.py', dir)
+    occ = find_occ(path, dir)
     i = 0
     while i < len(occ):
         word_size = len(occ[i])
@@ -29,7 +31,7 @@ def build_tests():
 
 def build_it_handler():
     dir = ps_methods_dir()
-    occ = find_occ('./AmpOffset.py', dir)
+    occ = find_occ(path, dir)
     i = 0
     while i < len(occ):
         word_size = len(occ[i])
@@ -44,7 +46,7 @@ def build_it_handler():
 
 def build_runner():
     dir = ps_methods_dir()
-    occ = find_occ('./AmpOffset.py', dir)
+    occ = find_occ(path, dir)
     i = 0
     while i < len(occ):
         word_size = len(occ[i])
