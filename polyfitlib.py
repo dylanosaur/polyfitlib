@@ -300,6 +300,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     Returns: The polySegData object
     """
+    # clear model cache
+    _modelCache = {}
     try:
         calcAmpOffset(ps)
         calcVoltageFromRawData(ps)
@@ -324,6 +326,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     #if ps.getErrWarnStr() != None:
         #print ps.getErrWarnStr()
+
+    ps._modelCache = _modelCache
 
     return ps
 
@@ -949,8 +953,6 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     # I've rewritten the calibration file with the corrected scattering angles.
     #    -jdl
 
-    _modelCache = {}
-
     try:
         return ne * _modelCache[(ps.scatAng, Te)]
     except:
@@ -963,7 +965,8 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
             dist = spectral_weave.selden_old(ps, Te)
         elif specFlag == "tsc":
             dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
-        _modelCache[(ang, Te)] = trapz(ps.trans_Bayes*dist,ps.calib.lam) #updated to use lam array for non-uniform spacing
+        _modelCache[(ang, Te)] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
+        # updated to use lam array for non-uniform spacing
         return ne * _modelCache[(ang, Te)]
 
 
