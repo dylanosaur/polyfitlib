@@ -45,8 +45,6 @@ def main():
     return tests
 
 
-
-
 # Test object takes shot data and performs analysis
 # shots must be loaded into shot to maintain small size of test code
 # This helps keep the test modular
