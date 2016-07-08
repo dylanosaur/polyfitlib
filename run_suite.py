@@ -40,13 +40,13 @@ def main():
     suite_list = []
 
     suite_AmpOffset = ['errNum', 'chanFlagDC', 'chanFlagAC',
-     'satChans', 'satChansDark', 'str_offsetVolt',
-     'str_ampOffset', 'acq_offsetVolt', 'acq_ampOffset',
-     'STRUCK_MIN', 'STRUCK_MAX']
+                       'satChans', 'satChansDark', 'str_offsetVolt',
+                       'str_ampOffset', 'acq_offsetVolt', 'acq_ampOffset',
+                       'STRUCK_MIN', 'STRUCK_MAX']
     suite_list.append((suite_AmpOffset, 'AmpOffset'))
 
     suite_VoltageFromRawData = ['errNum', 'str_ampOffset', 'acq_ampOffset',
-                     'str_voltData', 'acq_voltData']
+                                'str_voltData', 'acq_voltData']
     suite_list.append((suite_VoltageFromRawData, 'VoltageFromRawData'))
 
     suite_T0 = ['errNum', 'str_voltData', 'acq_voltData',
@@ -83,7 +83,7 @@ def main():
     # print statement provides much needed clarity
 
     for j in xrange(0,len(suite_list)):
-        print '\nMoving onto', suite_list[j][1]
+        print '\n'+'Moving onto', suite_list[j][1]
         for i in xrange(0,len(suite_list[j][0])):
             tests.run_method(suite_list[j][0][i])
 
