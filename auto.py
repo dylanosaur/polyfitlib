@@ -6,7 +6,21 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
-path = './FilterChans.py'
+path = './AmpOffset.py'
+def it_handler_v2():
+    dir = ps_methods_dir()
+    indent = "    "+"    " # 8 spaces
+    for i in xrange(0,len(dir)):
+        type = 'Sequence'
+        word_size = len(dir[i])
+        method = dir[i][3:word_size]
+
+        if method == 'errNum' or method == 'STRUCK_MIN' or method == 'STRUCK_MAX': type = ''
+        if method == 't0_dc' or method == 't0_ac': type = ''
+
+        print indent+"if method == '"+method+"': self.assert"+type+"Equal(old."+method+", new."+method+")"
+
+
 
 def build_tests():
     dir = ps_methods_dir()
@@ -34,16 +48,20 @@ def build_it_handler():
     dir = ps_methods_dir()
     occ = find_occ(path, dir)
     i = 0
+    list = []
     while i < len(occ):
         word_size = len(occ[i])
         method = occ[i][3:word_size]
+
         indent = '    ' # 4 spaces
         print indent+"if method == '"+method+"':"
         print indent+"    self.check_"+method+"_values(n, m)"
+        list.append(method)
         #print indent+"    except Exception, ex:"
         #print indent+"        print method, 'test failed ex=', ex"
         #print indent+"        break"
         i += 1
+    return list
 
 def build_runner():
     dir = ps_methods_dir()
