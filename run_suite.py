@@ -78,6 +78,10 @@ def main():
     suite_LambdaArray = ['calib.lam']
     suite_list.append((suite_LambdaArray, 'LambdaArray'))
 
+    suite_NeTeProbability = ['errNum', 'scatAng', 'scatPhotonsDC',
+                             'bgPhotons', 'trans_Bayes']
+    suite_list.append((suite_NeTeProbability, 'NeTeProbability'))
+
 
     # loop routine to run every test in every suite
     # print statement provides much needed clarity

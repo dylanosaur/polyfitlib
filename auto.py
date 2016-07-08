@@ -6,7 +6,7 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
-path = './VoltageFromRawData.py'
+path = './NeTeProbability.py'
 def it_handler_v2():
     dir = ps_methods_dir()
     indent = "    "+"    " # 8 spaces
