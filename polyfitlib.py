@@ -948,6 +948,9 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     # takes pi minus the angle as the scattering angle. 
     # I've rewritten the calibration file with the corrected scattering angles.
     #    -jdl
+
+    _modelCache = {}
+
     try:
         return ne * _modelCache[(ps.scatAng, Te)]
     except:
@@ -962,6 +965,7 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
             dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
         _modelCache[(ang, Te)] = trapz(ps.trans_Bayes*dist,ps.calib.lam) #updated to use lam array for non-uniform spacing
         return ne * _modelCache[(ang, Te)]
+
 
 def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):
     """Calculate the probability of getting the number of measured photons 

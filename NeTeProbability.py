@@ -21,10 +21,10 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     #    -jdl
 
 
-    ang = ps.scatAng
     try:
-        return ne * ps._modelCache[(ang, Te)]
+        return ne * ps._modelCache[(ps.scatAng, Te)]
     except:
+        ang = ps.scatAng
         if specFlag == "selden":
             dist = spectral_weave.selden_Spec(ps, Te)
         elif specFlag == "cold2o":
