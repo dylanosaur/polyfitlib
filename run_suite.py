@@ -79,8 +79,12 @@ def main():
     suite_list.append((suite_LambdaArray, 'LambdaArray'))
 
     suite_NeTeProbability = ['errNum', 'scatAng', 'scatPhotonsDC',
-                             'bgPhotons', 'trans_Bayes']
+                             'bgPhotons', 'trans_Bayes', '_modelCache']
     suite_list.append((suite_NeTeProbability, 'NeTeProbability'))
+
+    suite_TeNeInitVals = ['errNum', '_modelCache', 'Te0',
+                          'ne0', 'Te', 'ne']
+    suite_list.append((suite_TeNeInitVals, 'TeNeInitVals'))
 
 
     # loop routine to run every test in every suite
