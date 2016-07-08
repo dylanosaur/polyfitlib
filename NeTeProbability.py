@@ -20,11 +20,11 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     # I've rewritten the calibration file with the corrected scattering angles.
     #    -jdl
 
-    _modelCache = ps._modelCache
+
+    ang = ps.scatAng
     try:
-        return ne * _modelCache[(ps.scatAng, Te)]
+        return ne * ps._modelCache[(ang, Te)]
     except:
-        ang = ps.scatAng
         if specFlag == "selden":
             dist = spectral_weave.selden_Spec(ps, Te)
         elif specFlag == "cold2o":
@@ -33,8 +33,10 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
             dist = spectral_weave.selden_old(ps, Te)
         elif specFlag == "tsc":
             dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
-        _modelCache[(ang, Te)] = trapz(ps.trans_Bayes*dist,ps.calib.lam) #updated to use lam array for non-uniform spacing
-        return ne * _modelCache[(ang, Te)]
+        ps._modelCache[(ang,Te)] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
+        # updated to use lam array for non-uniform spacing
+
+        return ne * ps._modelCache[(ang, Te)]
 
 def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):
     """Calculate the probability of getting the number of measured photons

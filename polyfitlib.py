@@ -309,8 +309,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
         filterChans(ps)
 	    #calcACPhotons(ps)
         calcScatteringAngle(ps)
-        #calcLambdaArray(ps)
-        #calcTeNeInitVals(ps, 10.0, specFlag)
+        calcLambdaArray(ps)
+        calcTeNeInitVals(ps, 10.0, specFlag)
         #calcMostProbable_neTe(ps, specFlag)
         #calcNeTeValuesWithErrors(ps, specFlag)
     except Exception, ex:
@@ -1003,8 +1003,8 @@ def calcTeNeInitVals(ps, gridPts = 10.0, specFlag = "tsc"):
         ne_MIN = 1e-3
         ne_MAX = 1e1
     else:
-	ne_MIN = 1000.0
-	ne_MAX = 100000.0
+        ne_MIN = 1000.0
+        ne_MAX = 100000.0
 
     maxProb = 0
     ps.ne0 = -1
