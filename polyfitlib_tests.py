@@ -422,10 +422,6 @@ from numpy import pi, arctan
 from numpy import arange
 from LambdaArray import calcLambdaArray
 
-# Caching the model values for given angles and temperatures provides a
-# substantial speedup at the expense of greater memory usage.
-_modelCache = {}
-
 import spectral_weave
 import ts_c
 from numpy import dot, pi,trapz

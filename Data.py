@@ -109,6 +109,7 @@ class PolySegData:
         self.Te_MAX = 3498.0
         self.NE_STEPS = 51
         self.TE_STEPS = 101
+        self._modelCache = {}
 
         # Initial guesses for temperature and density.
         self.Te0 = 0 # Temperature initial guess.
