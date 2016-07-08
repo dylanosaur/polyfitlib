@@ -302,9 +302,9 @@ def fitPolySeg(ps, specFlag = "tsc"):
         calcTransMask(ps)
         calcNumPhotons(ps)
         filterChans(ps)
-	    #calcACPhotons(ps)
-        #calcScatteringAngle(ps)
-        #calcLambdaArray(ps)
+	    #calcACPhotons(ps) #removed from analysis: PRE 06/01/16
+        calcScatteringAngle(ps)
+        calcLambdaArray(ps)
         #calcTeNeInitVals(ps, 10.0, specFlag)
         #calcMostProbable_neTe(ps, specFlag)
         #calcNeTeValuesWithErrors(ps, specFlag)
@@ -415,30 +415,12 @@ def calcACPhotons(ps):
 
 from FilterChans import filterChans
 
+from ScatteringAngle import calcScatteringAngle
 from numpy import pi, arctan
-def calcScatteringAngle(ps):
-    """Calculates the scattering angle for the given roa value of the poly."""
-    a     = 0.5200 # The radius.
-    alpha = 0.1733 # Height of detector above r = 0.
-    beta  = 0.5163 # Perpendicular distance from laser to detector.
-    r = ps.roa * a
-    ps.scatAng = pi - arctan(beta / (alpha + r))
-
 
 
 from numpy import arange
-def calcLambdaArray(ps):
-    """Calculates an array of lambda values. This serves as the abscissa axis 
-    for the transmission functions. Updated 2014/03/27 by LAM.
-    """
-    if ps.shotNum < 1140327000:
-        lam0 = ps.calib.lam0
-        lam1 = lam0 + ps.calib.deltaLam * ps.calib.trans[0].shape[0]
-        ps.calib.lam = arange(lam0, lam1, ps.calib.deltaLam)
-    else:
-        pass #we've just imported the array straight from the calib.nc file
-
-
+from LambdaArray import calcLambdaArray
 
 # Caching the model values for given angles and temperatures provides a
 # substantial speedup at the expense of greater memory usage.

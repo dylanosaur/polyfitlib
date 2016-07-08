@@ -308,7 +308,7 @@ def fitPolySeg(ps, specFlag = "tsc"):
         calcNumPhotons(ps)
         filterChans(ps)
 	    #calcACPhotons(ps)
-        #calcScatteringAngle(ps)
+        calcScatteringAngle(ps)
         #calcLambdaArray(ps)
         #calcTeNeInitVals(ps, 10.0, specFlag)
         #calcMostProbable_neTe(ps, specFlag)

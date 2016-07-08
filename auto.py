@@ -6,7 +6,7 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
-path = './AmpOffset.py'
+path = './VoltageFromRawData.py'
 def it_handler_v2():
     dir = ps_methods_dir()
     indent = "    "+"    " # 8 spaces
@@ -43,6 +43,10 @@ def build_tests():
         print indent+"        print 'sequence assert complete for", method, "test'"
         i += 1
     return None
+
+def suite():
+    list_out = build_it_handler()
+    return list_out
 
 def build_it_handler():
     dir = ps_methods_dir()
