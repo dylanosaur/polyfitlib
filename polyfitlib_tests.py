@@ -21,6 +21,9 @@ LASER_LAM = 1064.3
 LOGBOOK_TRUE = 1
 LOGBOOK_UNSURE = -1
 
+# Create model cache
+_modelCache = {}
+
 #MPTS_LASERON = '\\mraw_ops::btdot_128_180'
 #DIM_MPTS_LASERON = 'dim_of(\\mraw_ops::btdot_128_180)*1000.0'
 
@@ -295,6 +298,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     Returns: The polySegData object
     """
+    ps._modelCache = _modelCache
+
     try:
         calcAmpOffset(ps)
         calcVoltageFromRawData(ps)
@@ -319,6 +324,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     #if ps.getErrWarnStr() != None:
         #print ps.getErrWarnStr()
+
+    ps._modelCache = _modelCache
 
     return ps
 
