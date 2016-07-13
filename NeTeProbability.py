@@ -19,30 +19,34 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     # takes pi minus the angle as the scattering angle.
     # I've rewritten the calibration file with the corrected scattering angles.
     #    -jdl
-
-    # for testing purposes
-    # seems only chanFlagAC has [3],[4] dependence but could have [0],[1],[2] in general
-
     f = []
     flag_len = len(ps.chanFlagDC)
+
+    indicator = 0
     for i in xrange(0, flag_len):
         f.append(ps.chanFlagDC[i])
-    try:
-        return ne * ps._modelCache[(ps.scatAng, Te, f[0], f[1], f[2], f[3], f[4])]
-    except:
-        ang = ps.scatAng
-        if specFlag == "selden":
-            dist = spectral_weave.selden_Spec(ps, Te)
-        elif specFlag == "cold2o":
-            dist = spectral_weave.cold2o_Spec(ps, Te)
-        elif specFlag == "old":
-            dist = spectral_weave.selden_old(ps, Te)
-        elif specFlag == "tsc":
-            dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
-        ps._modelCache[(ang, Te, f[0], f[1], f[2], f[3], f[4])] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
-        # updated to use lam array for non-uniform spacing
+    while (indicator == 0):
+        try:
+            return_val = ne * ps._modelCache[ps.scatAng, Te, f[0], f[1], f[2], f[3], f[4]]
+            indicator = 1
+            return return_val
+        except:
+            print 'generating model'
+            ang = ps.scatAng
+            if specFlag == "selden":
+                dist = spectral_weave.selden_Spec(ps, Te)
+            elif specFlag == "cold2o":
+                dist = spectral_weave.cold2o_Spec(ps, Te)
+            elif specFlag == "old":
+                dist = spectral_weave.selden_old(ps, Te)
+            elif specFlag == "tsc":
+                print 'chanFlagDC is', ps.chanFlagDC
+                dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
+                indicator = 1
 
-        return ne * ps._modelCache[(ang, Te, f[0], f[1], f[2], f[3], f[4])]
+        ps._modelCache[ang, Te, f[0], f[1], f[2], f[3], f[4]] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
+        # updated to use lam array for non-uniform spacing
+        return ne * ps._modelCache[ang, Te, f[0], f[1], f[2], f[3], f[4]]
 
 def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):
     """Calculate the probability of getting the number of measured photons

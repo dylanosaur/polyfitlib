@@ -22,7 +22,10 @@ LOGBOOK_TRUE = 1
 LOGBOOK_UNSURE = -1
 
 # Create model cache
-_modelCache = {}
+import UserDict
+_modelCache = UserDict.UserDict()
+
+LOOP_INDICATOR = 0
 
 #MPTS_LASERON = '\\mraw_ops::btdot_128_180'
 #DIM_MPTS_LASERON = 'dim_of(\\mraw_ops::btdot_128_180)*1000.0'
@@ -290,6 +293,8 @@ def fitWithWarnings(ps):
 
     return ps
 
+
+
 def fitPolySeg(ps, specFlag = "tsc"):
     """Fit a single poly and segment.
 
@@ -298,21 +303,32 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     Returns: The polySegData object
     """
+    _modelCache.data.clear()
     ps._modelCache = _modelCache
-
+    print ps.segment, ps.poly
     try:
+        #if bool == 'true': print 'calcAmpOffset'
         calcAmpOffset(ps)
+        #if bool == 'true': print 'VoltageFromRawdata'
         calcVoltageFromRawData(ps)
+        #if bool == 'true': print 'T0'
         calc_t0(ps)
+        #if bool == 'true': print 'TransMask'
         calcTransMask(ps)
+        #if bool == 'true': print 'NumPhotons'
         calcNumPhotons(ps)
+        #if bool == 'true': print 'FilterChans'
         filterChans(ps)
+        #if bool == 'true': print 'ScatAng'
 	    #calcACPhotons(ps) #removed from analysis: PRE 06/01/16
         calcScatteringAngle(ps)
+        #if bool == 'true': print 'LambdaArray'
         calcLambdaArray(ps)
+        #if bool == 'true': print 'TeNeInitVals'
         calcTeNeInitVals(ps, 10.0, specFlag)
-        #calcMostProbable_neTe(ps, specFlag)
-        #calcNeTeValuesWithErrors(ps, specFlag)
+        #if bool == 'true': print 'MostProbable NeTe'
+        calcMostProbable_neTe(ps, specFlag)
+        calcNeTeValuesWithErrors(ps, specFlag)
     except Exception, ex:
         # If we haven't set an error number, it is an unknown error. 
         if ps.errNum == 0:
@@ -324,8 +340,6 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     #if ps.getErrWarnStr() != None:
         #print ps.getErrWarnStr()
-
-    ps._modelCache = _modelCache
 
     return ps
 
@@ -434,96 +448,14 @@ import ts_c
 from numpy import dot, pi,trapz
 from NeTeProbability import _calcNeTeProbability, _N_model
 
-
-
 from numpy import logspace, log10, exp, linspace
 from pylab import amap, where
 from TeNeInitVals import calcTeNeInitVals
 
-from scipy.optimize import fmin
-def calcMostProbable_neTe(ps, specFlag = "tsc"):
-    """Find the most likely temperature and density combination."""
-    
-    def __calcNeTeProbability(x, ps, specFlag):
-        return _calcNeTeProbability(x[0], x[1], ps, specFlag)
-
-    x0 = (ps.ne0, ps.Te0)
-    (xopt, fopt, iter, funcalls, warnflag) = fmin(__calcNeTeProbability, x0, 
-        args=(ps, specFlag, ), disp=0, full_output=1)
-
-    predicted=_N_model(xopt[0],xopt[1],ps,'tsc')
-    ps.chiRedMin=sum((predicted - ps.scatPhotonsDC)**2/((predicted + ps.bgPhotons) * ps.calib.APDfqeDC))/len(ps.scatPhotonsDC)
-    ps.residual=(predicted - ps.scatPhotonsDC) #calculates a residual
-    ps.weight = 1/((predicted + ps.bgPhotons) * ps.calib.APDfqeDC)
-#    ps.weightSum = sum(ps.weight)
-#    ps.normalizedResidual = ((sqrt((ps.weight*ps.weightSum)/(ps.weightSum-ps.weight)))*(predicted - ps.scatPhotonsDC)) #calculates a normalized residual
-    if warnflag in (1, 2):
-        ps.setError(800)
-
-    ps.ne1 = xopt[0]
-    ps.Te1 = xopt[1]
-
-
+from MostProbable_NeTe import calcMostProbable_neTe
 
 from numpy import e, linspace
-def calcNeTeValuesWithErrors(ps, specFlag = "tsc"):
-    """Calculates the temperature and density with error bars. This is 
-    accomplished by creating a grid and calculating the probability for each
-    point on the grid.
-    """
-    # Calculate the box to integrate on.
-    TeSpread = ps.Te1 * 0.3
-    neSpread = ps.ne1 * 0.3
-    
-    # Create arrays in temperature and density to define the grid.
-    #ne_STEPS = 51
-    #Te_STEPS = 101
-
-    ps.TeArray = linspace(ps.Te1 - TeSpread, ps.Te1 + TeSpread, TE_STEPS)
-    ps.neArray = linspace(ps.ne1 - neSpread, ps.ne1 + neSpread, NE_STEPS)
-    
-    # Create and populate the grid.
-    ps.probGrid = ndarray(shape = (TE_STEPS, NE_STEPS))
-
-    # This takes about 50% of the time of the entire program. 
-    # I'd like to speed it up if I could.
-    for i, Te in enumerate(ps.TeArray):
-        for j, ne in enumerate(ps.neArray):
-            ps.probGrid[i][j] = _calcNeTeProbability(ne, Te, ps, specFlag = "tsc")
-            
-
-    # Calculate the probability curves for temperature and density.
-    ps.TeProb = ps.probGrid.sum(axis=1)
-    ps.neProb = ps.probGrid.sum(axis=0)
-    
-    # Calculate the temperature and density.
-    neProbMin = ps.neProb.min()
-    TeProbMin = ps.TeProb.min()
-
-    neIdx = where(ps.neProb == neProbMin)[0][0]
-    TeIdx = where(ps.TeProb == TeProbMin)[0][0]
-
-    ps.ne = ps.neArray[neIdx]
-    ps.Te = ps.TeArray[TeIdx]
-    
-    try:
-        ps.neErrMin = ps.neArray[where(ps.neProb < neProbMin/e)[0][ 0]]
-        ps.neErrMax = ps.neArray[where(ps.neProb < neProbMin/e)[0][-1]]
-    
-        ps.TeErrMin = ps.TeArray[where(ps.TeProb < TeProbMin/e)[0][ 0]]
-        ps.TeErrMax = ps.TeArray[where(ps.TeProb < TeProbMin/e)[0][-1]]
-
-        # TODO.
-        # If there are error points are end points, then we should issue a
-        # warning. 
-    except Exception, ex:
-        # An exception will be thrown if there are no points in the 
-        # temperature or density probability distributions with values less
-        # than min(prob) / e. (Recall the probability distribution is 
-        # negative.)
-        ps.setError(900)
-
-
+from NeTeWithErrors import calcNeTeValuesWithErrors
 
 from numpy import zeros, transpose
 

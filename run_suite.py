@@ -16,7 +16,8 @@ def main():
     # time fitShot routine to compare new/ old analysis
     start_new = time.time()
     try:
-        poly_new = pfl.fitShot(1140726089, burstLen=25)
+        #poly_new = pfl.fitShot(1140726089, burstLen=25)
+        poly_new = pfl.fitShot(1160325025, burstLen=25)
         new = poly_new.data
     except Exception, ex:
         print 'error: shots not loaded correctly,', ex
@@ -24,7 +25,8 @@ def main():
     print 'new time =', finish_new - start_new
     start_old = time.time()
     try:
-        poly_old = opfl.fitShot(1140726089, burstLen=25)
+        #poly_old = opfl.fitShot(1140726089, burstLen=25)
+        poly_old = opfl.fitShot(1160325025, burstLen=25)
         old = poly_old.data
     except Exception, ex:
         print 'error: shots not loaded correctly,', ex
@@ -86,6 +88,17 @@ def main():
                           'ne0', 'Te', 'ne']
     suite_list.append((suite_TeNeInitVals, 'TeNeInitVals'))
 
+    suite_MostProbable_NeTe = ['errNum', 'scatPhotonsDC', 'bgPhotons',
+                               'residual', 'weight', 'weightSum',
+                               'normalizedResidual', 'chiRedMin',
+                               'Te0', 'ne0', 'Te1', 'ne1', 'Te', 'ne']
+    suite_list.append((suite_MostProbable_NeTe, 'MostProbable_NeTe'))
+
+    suite_NeTeWithErrors = ['errNum', 'Te1', 'ne1', 'TeArray',
+                            'neArray', 'probGrid', 'TeProb',
+                            'neProb', 'Te', 'TeErrMin', 'TeErrMax',
+                            'ne', 'neErrMin', 'neErrMax']
+    suite_list.append((suite_NeTeWithErrors, 'NeTeWithErrors'))
 
     # loop routine to run every test in every suite
     # print statement provides much needed clarity

@@ -312,7 +312,7 @@ def fitPolySeg(ps, specFlag = "tsc"):
         calcScatteringAngle(ps)
         calcLambdaArray(ps)
         calcTeNeInitVals(ps, 10.0, specFlag)
-        #calcMostProbable_neTe(ps, specFlag)
+        calcMostProbable_neTe(ps, specFlag)
         #calcNeTeValuesWithErrors(ps, specFlag)
     except Exception, ex:
         # If we haven't set an error number, it is an unknown error. 
@@ -325,8 +325,6 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     #if ps.getErrWarnStr() != None:
         #print ps.getErrWarnStr()
-
-    ps._modelCache = _modelCache
 
     return ps
 
