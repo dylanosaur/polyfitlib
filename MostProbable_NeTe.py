@@ -1,6 +1,6 @@
 from scipy.optimize import fmin
-from NeTeProbability import _calcNeTeProbability
-from polyfitlib_tests import _N_model
+from NeTeProbability import _calcNeTeProbability, _N_model
+
 
 def calcMostProbable_neTe(ps, specFlag = "tsc"):
     """Find the most likely temperature and density combination."""

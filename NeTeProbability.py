@@ -22,7 +22,6 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     f = []
     flag_len = len(ps.chanFlagDC)
 
-    indicator = 0
     for i in xrange(0, flag_len):
         f.append(ps.chanFlagDC[i])
 
