@@ -303,9 +303,11 @@ def fitPolySeg(ps, specFlag = "tsc"):
 
     Returns: The polySegData object
     """
+
+    # clear the cache frequently, or it's likely the program will fail
     _modelCache.data.clear()
     ps._modelCache = _modelCache
-    print ps.segment, ps.poly
+
     try:
         calcAmpOffset(ps)
         calcVoltageFromRawData(ps)
