@@ -25,11 +25,9 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     indicator = 0
     for i in xrange(0, flag_len):
         f.append(ps.chanFlagDC[i])
-    while (indicator == 0):
+
         try:
-            return_val = ne * ps._modelCache[ps.scatAng, Te, f[0], f[1], f[2], f[3], f[4]]
-            indicator = 1
-            return return_val
+            return ne * ps._modelCache[ps.scatAng, Te, f[0], f[1], f[2], f[3], f[4]]
         except:
             print 'generating model'
             ang = ps.scatAng
@@ -42,10 +40,10 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
             elif specFlag == "tsc":
                 print 'chanFlagDC is', ps.chanFlagDC
                 dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
-                indicator = 1
 
         ps._modelCache[ang, Te, f[0], f[1], f[2], f[3], f[4]] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
         # updated to use lam array for non-uniform spacing
+
         return ne * ps._modelCache[ang, Te, f[0], f[1], f[2], f[3], f[4]]
 
 def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):

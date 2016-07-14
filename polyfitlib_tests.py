@@ -307,26 +307,16 @@ def fitPolySeg(ps, specFlag = "tsc"):
     ps._modelCache = _modelCache
     print ps.segment, ps.poly
     try:
-        #if bool == 'true': print 'calcAmpOffset'
         calcAmpOffset(ps)
-        #if bool == 'true': print 'VoltageFromRawdata'
         calcVoltageFromRawData(ps)
-        #if bool == 'true': print 'T0'
         calc_t0(ps)
-        #if bool == 'true': print 'TransMask'
         calcTransMask(ps)
-        #if bool == 'true': print 'NumPhotons'
         calcNumPhotons(ps)
-        #if bool == 'true': print 'FilterChans'
         filterChans(ps)
-        #if bool == 'true': print 'ScatAng'
 	    #calcACPhotons(ps) #removed from analysis: PRE 06/01/16
         calcScatteringAngle(ps)
-        #if bool == 'true': print 'LambdaArray'
         calcLambdaArray(ps)
-        #if bool == 'true': print 'TeNeInitVals'
         calcTeNeInitVals(ps, 10.0, specFlag)
-        #if bool == 'true': print 'MostProbable NeTe'
         calcMostProbable_neTe(ps, specFlag)
         calcNeTeValuesWithErrors(ps, specFlag)
     except Exception, ex:
@@ -442,11 +432,6 @@ from numpy import pi, arctan
 
 from numpy import arange
 from LambdaArray import calcLambdaArray
-
-import spectral_weave
-import ts_c
-from numpy import dot, pi,trapz
-from NeTeProbability import _calcNeTeProbability, _N_model
 
 from numpy import logspace, log10, exp, linspace
 from pylab import amap, where
