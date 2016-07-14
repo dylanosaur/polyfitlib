@@ -950,13 +950,20 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     # I've rewritten the calibration file with the corrected scattering angles.
     #    -jdl
 
-    f = []
-    flag_len = len(ps.chanFlagDC)
-    for i in xrange(0, flag_len):
-        f.append(ps.chanFlagDC[i])
+    # Code revision: 07/14/16: Dylan Adams
+    # this set of comments (and those in this method dealing with f[n])
+    # are a set of changes that fix the cache address bug
+    # namely that ang, Te are insufficient to completely specify a model
+    # the model also depends on the channels being considered (info stored in
+    # ps.chanFlagDC) in the filterChans method
+    #f = []
+    #flag_len = len(ps.chanFlagDC)
+    #for i in xrange(0, flag_len):
+    #    f.append(ps.chanFlagDC[i])
 
     try:
-        return ne * _modelCache[(ps.scatAng, Te, f[0], f[1], f[2], f[3], f[4])]
+        # return ne * _modelCache[(ps.scatAng, Te, f[0], f[1], f[2], f[3], f[4])]
+        return ne * _modelCache[(ps.scatAng, Te)]
     except:
         ang = ps.scatAng
         dc_flag = ps.chanFlagDC[4]
@@ -968,9 +975,12 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
             dist = spectral_weave.selden_old(ps, Te)
         elif specFlag == "tsc":
             dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
-        _modelCache[(ang, Te, f[0], f[1], f[2], f[3], f[4])] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
+        # _modelCache[(ang, Te, f[0], f[1], f[2], f[3], f[4])] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
+        _modelCache[(ang, Te)] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
         # updated to use lam array for non-uniform spacing
-        return ne * _modelCache[(ang, Te, f[0], f[1], f[2], f[3], f[4])]
+
+        # return ne * _modelCache[(ang, Te, f[0], f[1], f[2], f[3], f[4])]
+        return ne * _modelCache[(ang, Te)]
 
 
 def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):
