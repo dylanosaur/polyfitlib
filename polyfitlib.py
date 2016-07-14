@@ -301,6 +301,14 @@ def fitPolySeg(ps, specFlag = "tsc"):
     Returns: The polySegData object
     """
 
+    # cache full bug: 07/14/16: Dylan Adams
+    # sometimes the fitPolySeg method fails when trying to store
+    # a new value in the cache, and happens only after many fits
+    # are complete. So clearing the cache at the beginning of each fit
+    # reduces the cache's usefulness (still many cache hits / method),
+    # but keeps the program from randomly failing
+    #_modelCache = {}
+
     try:
         calcAmpOffset(ps)
         calcVoltageFromRawData(ps)
