@@ -307,7 +307,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
     # are complete. So clearing the cache at the beginning of each fit
     # reduces the cache's usefulness (still many cache hits / method),
     # but keeps the program from randomly failing
-    # _modelCache = {}
+
+    _modelCache = {}
 
     try:
         calcAmpOffset(ps)
@@ -320,8 +321,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
         calcScatteringAngle(ps)
         calcLambdaArray(ps)
         calcTeNeInitVals(ps, 10.0, specFlag)
-        #calcMostProbable_neTe(ps, specFlag)
-        #calcNeTeValuesWithErrors(ps, specFlag)
+        calcMostProbable_neTe(ps, specFlag)
+        calcNeTeValuesWithErrors(ps, specFlag)
     except Exception, ex:
         # If we haven't set an error number, it is an unknown error. 
         if ps.errNum == 0:
