@@ -8,8 +8,8 @@
 # Common testing methods are in my_test_methods.py
 # main script runs full suite comparing variables
 # involved in each step of fitPolySeg routine
-import polyfitlib_tests as pfl
-import polyfitlib as opfl
+import polyfitlib as pfl
+import polyfitlib_copy as opfl
 import time
 def main():
 

@@ -307,7 +307,7 @@ def fitPolySeg(ps, specFlag = "tsc"):
     # are complete. So clearing the cache at the beginning of each fit
     # reduces the cache's usefulness (still many cache hits / method),
     # but keeps the program from randomly failing
-    #_modelCache = {}
+    # _modelCache = {}
 
     try:
         calcAmpOffset(ps)
@@ -320,7 +320,7 @@ def fitPolySeg(ps, specFlag = "tsc"):
         calcScatteringAngle(ps)
         calcLambdaArray(ps)
         calcTeNeInitVals(ps, 10.0, specFlag)
-        calcMostProbable_neTe(ps, specFlag)
+        #calcMostProbable_neTe(ps, specFlag)
         #calcNeTeValuesWithErrors(ps, specFlag)
     except Exception, ex:
         # If we haven't set an error number, it is an unknown error. 
@@ -969,12 +969,12 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     #for i in xrange(0, flag_len):
     #    f.append(ps.chanFlagDC[i])
 
+    _modelCache = {}
     try:
         # return ne * _modelCache[(ps.scatAng, Te, f[0], f[1], f[2], f[3], f[4])]
         return ne * _modelCache[(ps.scatAng, Te)]
     except:
         ang = ps.scatAng
-        dc_flag = ps.chanFlagDC[4]
         if specFlag == "selden":
             dist = spectral_weave.selden_Spec(ps, Te)
         elif specFlag == "cold2o":

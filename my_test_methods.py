@@ -18,7 +18,7 @@ def iterate_method(self, method='chanFlagDC'):
             try:
                 it_handler(self, method, n, m)
             except Exception, ex:
-                print method, 'test failed, ex:', ex
+                print method, 'test failed, n m ex:', n, m, ex
                 failed = 'true'
                 break
         if failed == 'true': break
@@ -109,8 +109,8 @@ def it_handler(self, method, n, m):
     if method == 'ne0': self.assertEqual(old.ne0, new.ne0)
     if method == 'Te1': self.assertEqual(old.Te1, new.Te1)
     if method == 'ne1': self.assertEqual(old.ne1, new.ne1)
-    if method == 'TeArray': self.assert2DMatrixEqual(old.TeArray, new.TeArray)
-    if method == 'neArray': self.assert2DMatrixEqual(old.neArray, new.neArray)
+    if method == 'TeArray': self.assertSequenceEqual(old.TeArray, new.TeArray)
+    if method == 'neArray': self.assertSequenceEqual(old.neArray, new.neArray)
     if method == 'probGrid': self.assert2DMatrixEqual(old.probGrid, new.probGrid)
     if method == 'TeProb': self.assertSequenceEqual(old.TeProb, new.TeProb)
     if method == 'neProb': self.assertSequenceEqual(old.neProb, new.neProb)

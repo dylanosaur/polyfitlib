@@ -20,30 +20,30 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
     # I've rewritten the calibration file with the corrected scattering angles.
     #    -jdl
     f = []
+    cache_address = (ps.scatAng, Te,) # a list of tuple objects
     flag_len = len(ps.chanFlagDC)
 
     for i in xrange(0, flag_len):
         f.append(ps.chanFlagDC[i])
+        cache_address = cache_address + (ps.chanFlagDC[i],)
 
-        try:
-            return ne * ps._modelCache[ps.scatAng, Te, f[0], f[1], f[2], f[3], f[4]]
-        except:
-            print 'generating model'
-            ang = ps.scatAng
-            if specFlag == "selden":
-                dist = spectral_weave.selden_Spec(ps, Te)
-            elif specFlag == "cold2o":
-                dist = spectral_weave.cold2o_Spec(ps, Te)
-            elif specFlag == "old":
-                dist = spectral_weave.selden_old(ps, Te)
-            elif specFlag == "tsc":
-                print 'chanFlagDC is', ps.chanFlagDC
-                dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
+    try:
+        return ne * ps._modelCache[cache_address]
+    except:
+        ang = ps.scatAng
+        if specFlag == "selden":
+            dist = spectral_weave.selden_Spec(ps, Te)
+        elif specFlag == "cold2o":
+            dist = spectral_weave.cold2o_Spec(ps, Te)
+        elif specFlag == "old":
+            dist = spectral_weave.selden_old(ps, Te)
+        elif specFlag == "tsc":
+            dist = ts_c.selden(ps.calib.lam, 1.0, Te, ang)
 
-        ps._modelCache[ang, Te, f[0], f[1], f[2], f[3], f[4]] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
+        ps._modelCache[cache_address] = trapz(ps.trans_Bayes*dist,ps.calib.lam)
         # updated to use lam array for non-uniform spacing
 
-        return ne * ps._modelCache[ang, Te, f[0], f[1], f[2], f[3], f[4]]
+        return ne * ps._modelCache[cache_address]
 
 def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):
     """Calculate the probability of getting the number of measured photons

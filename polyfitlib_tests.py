@@ -304,7 +304,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
     Returns: The polySegData object
     """
 
-    # clear the cache frequently, or it's likely the program will fail
+    # clear the cache frequently, or it's likely the cache will
+    # become clogged for bigger data shots (>30 segments)
     _modelCache.data.clear()
     ps._modelCache = _modelCache
 
