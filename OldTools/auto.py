@@ -1,7 +1,7 @@
 # This script just generates code for tests
 # Lots of variables to check, and rather tedious at that
 
-from parser import ps_methods_dir, find_occ
+from OldTools.parser import ps_methods_dir, find_occ
 
 # exists only in dreams
 # def write_script():

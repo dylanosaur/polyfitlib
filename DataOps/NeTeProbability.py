@@ -1,6 +1,7 @@
-import spectral_weave
+from numpy import trapz
 import ts_c
-from numpy import dot, pi,trapz
+import spectral_weave
+
 
 def _N_model(ne, Te, ps, specFlag = "tsc"):
     """For a given temperature and density, return the number of expected

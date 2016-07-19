@@ -39,8 +39,7 @@ LOOP_INDICATOR = 0
 # numbers of jobs, or for faster processors / more processors. 
 MULTIPROC_CHUNK_SIZE = 8
 
-from numpy import mean, where, max, array, roll, absolute, arange,linspace, concatenate, diff, amin, logical_and, median
-from util import getMdsServer
+from numpy import mean, where, max, array, roll, absolute, arange,linspace, concatenate, diff, logical_and, median
 
 try:
     from pmds import mdsconnect, mdsopen, mdsvalue, mdsclose, mdsdisconnect
@@ -188,7 +187,6 @@ def getLaserFireTimes(shotNum, burstLen = 0):
     return (laserTime[ind],prelasing)
 
 from Data import Data
-import util
 import itertools
 def fitShot(shotNum, specFlag = "tsc", numProcs = None, burstLen = 0):
     """This function fits an entire shot. This version will use up to the 
@@ -341,207 +339,39 @@ def fitPolySeg(ps, specFlag = "tsc"):
 # calcTransMask can be removed from PolyFitLib to save time
 
 from numpy import where
-from TransMask import transMask
+from DataOps.TransMask import transMask
 
-from numpy import ndarray, any, average
-from AmpOffset import ampOffset
+from numpy import any
+from DataOps.AmpOffset import ampOffset
 
-from numpy import ndarray, any
-from VoltsFromData import voltsFromData
+from numpy import any
+from DataOps.VoltsFromData import voltsFromData
 
-from numpy import zeros_like, min
-from scipy import polyfit, polyval
-from numpy import arange, sum, where, floor
-from Calc_t0 import calc_t0
-
-from numpy import arange, square
-
-from numpy import where, min
-from numpy import array, average, sum, max, min, ndarray, abs, sqrt, absolute
-from scipy.optimize import leastsq
-
-from NumPhotons import numPhotons, _polyPulseFitFn, _calcCharPulseBeginAndEnd
-
-def calcACPhotons(ps):
-    """Function fits the raw AC data of each APD with a polynomial and scaled
-    characteristic pulse.
-
-    Parameters:
-    ps -- A PolySegData object.
-
-    No return. The data is stored in ps.scatPhotonsAC
-    """
-
-    # The coefficients of the fit are saved in the PolySegData object so they
-    # can be analyzed later.
-    ps.scatPhotonsAC = ndarray(shape=[ps.str_voltData.shape[0]])
-    ps.polyPulseCoeffsAC = ndarray(shape=[ps.str_voltData.shape[0], 3])
-
-    polyPulseCoeffs0 = ndarray(shape=[ps.str_voltData.shape[0], 3])
-
-    # find the AC neg-pos crossing point of the charPulse
-    cp_max = where(ps.calib.charPulseAC[0] == max(ps.calib.charPulseAC[0]))
-    cp_min = where(ps.calib.charPulseAC[0] == min(ps.calib.charPulseAC[0]))
-    cp_cross = 0
-    compare = abs(ps.calib.charPulseAC[0,cp_min[0][0]])
-    for i in range(cp_min[0][0],cp_max[0][0]):
-        if abs(ps.calib.charPulseAC[0,i]) < compare:
-	    cp_cross = i
-	    compare = abs(ps.calib.charPulseAC[0,i])
-
-    for i in xrange(len(ps.acq_voltData)):
-        charPulse = -1.0 * ps.calib.charPulseAC[i] / sum(ps.calib.charPulseAC[i, :cp_cross])
-        APDgainAC = abs(ps.calib.APDgainAC[i])
-	APDfqeAC = ps.calib.APDfqeAC[i]
-	t0 = ps.t0_ac
-	voltData = ps.acq_voltData[i][t0 : t0 + charPulse.shape[0]]
-	rawData = ps.acq_rawData[i][t0 : t0 + charPulse.shape[0]]
-
-        # Raise a warning if there is saturation in the raw data around the
-        # characteristic pulse. 
-        if any(rawData == ACQIRIS_MIN) or any(rawData == ACQIRIS_MAX):
-	    ps.setWarning(4)
-	    ps.satChans.append(i + ps.calib.skipAPD)
-
-	A = average(voltData[:32])
-	B = 0
-	D = 0
-
-	polyPulseCoeffs0[i] = array((A, B, D))
-	x0 = polyPulseCoeffs0[i].copy()
-
-	def errorFn((A, B, D)):
-	    return _polyPulseFitFn((A, B, 0, D), charPulse) - voltData
-
-	(coeffs, cov_x, info, mesg, ier) = leastsq(errorFn, x0, full_output=1)
-
-	if ier not in (1,2,3,4):
-	    print "error in leastsq"
-	    break
-
-	ps.polyPulseCoeffsAC[i] = coeffs
-
-	if ps.polyPulseCoeffsAC[i][-1] < 0:
-	    ps.polyPulseCoeffsAC[i][-1] = 0
-
-	ps.scatPhotonsAC[i] = ps.acq_deltat[i] * ps.polyPulseCoeffsAC[i][-1] / APDgainAC
-
-
-from FilterChans import filterChans
-
-from CalcScatAngle import calcScatAngle
-from numpy import pi, arctan
-
+from numpy import arange, where
+from DataOps.Calc_t0 import calc_t0
 
 from numpy import arange
-from LambdaArray import lambdaArray
 
-from numpy import logspace, log10, exp, linspace
-from pylab import amap, where
-from CalcInitVals import calcInitVals
+from numpy import where
+from numpy import array, max, absolute
 
-from CalcMostProbable import calcMostProbable
+from DataOps.NumPhotons import numPhotons
 
-from numpy import e, linspace
-from CalcWithErrors import calcWithErrors
+from DataOps.FilterChans import filterChans
 
-from numpy import zeros, transpose
+from DataOps.CalcScatAngle import calcScatAngle
 
-from datetime import date
+from numpy import arange
+from DataOps.LambdaArray import lambdaArray
+
+from numpy import linspace
+from pylab import where
+from DataOps.CalcInitVals import calcInitVals
+
+from DataOps.CalcMostProbable import calcMostProbable
+
+from numpy import linspace
+from DataOps.CalcWithErrors import calcWithErrors
+
 from util import getMdsServer
-def saveToMDSplus(data):
-    """The code in this function was adapted from the idl function with few
-    if any changes to the TDI expressions. 
-    """
-    
-    # The time basis of stored data is given by the laser diode.
-    timePoints = data.laserFireTimes
-
-    if len(data.laserFireTimes) != len(data.segments):
-        raise Exception("Laser diode # of shots (%s) doesn't match data segments (%s)" % (
-            len(data.laserFireTimes), len(data.segments)))
-    
-    # Construct roa array.
-    polyList = data.getPolyListSortedROA()
-
-    # Construct the temperature and density arrays.
-    roaArray = zeros(shape=(len(polyList), len(timePoints)))
-    qualArray = zeros(shape=(len(polyList), len(timePoints)), dtype=int)
-    TeArray = zeros(shape=(len(polyList), len(timePoints)))
-    neArray = zeros(shape=(len(polyList), len(timePoints)))
-    TeErr   = zeros(shape=(len(polyList), len(timePoints)))
-    neErr   = zeros(shape=(len(polyList), len(timePoints)))
-
-    #ProbGrid = zeros(shape=(len(polyList), len(timePoints), TE_STEPS, NE_STEPS))
-
-    for i in data.getSegments():
-        for j,poly in enumerate(polyList):
-            ps = data.getPolySegData(poly, i)
-            roaArray[j][i] = ps.roa
-            TeArray[j][i] = ps.Te
-            neArray[j][i] = ps.ne
-            TeErr[j][i] = (ps.TeErrMax - ps.TeErrMin)/2.0
-            neErr[j][i] = (ps.neErrMax - ps.neErrMin)/2.0
-            qualArray[j][i] = ps.warnNum
-
-            #ProbGrid[j,i] = ps.probGrid
-
-    # Connect to MDSplus system.
-    mdsconnect(getMdsServer(data.shotNum))
-    mdsopen('mst_tsmp', data.shotNum)
-
-    # Put Bayesian temperature/density profiles.
-    mdsput('\mst_tsmp::top.proc_tsmp.t_e_bayesian',
-           'build_signal(build_with_error(build_with_units($,"eV"),$),*,build_with_units($,"s"),$)',
-           (TeArray, TeErr, timePoints, roaArray))
-    mdsput('\mst_tsmp::top.proc_tsmp.t_e',
-           'build_signal(build_with_error(build_with_units($,"eV"),$),*,build_with_units($,"s"),$)',
-           (TeArray, TeErr, timePoints, roaArray))
-
-    mdsput('\mst_tsmp::top.proc_tsmp.n_e_bayesian',
-           'build_signal(build_with_error(build_with_units($,"na"),$),*,build_with_units($,"s"),$)',
-           (neArray, neErr, timePoints, roaArray))
-    mdsput('\mst_tsmp::top.proc_tsmp.n_e',
-           'build_signal(build_with_error(build_with_units($,"na"),$),*,build_with_units($,"s"),$)',
-           (neArray, neErr, timePoints, roaArray))
-
-    mdsput('\mst_tsmp::top.proc_tsmp.quality', 'build_signal($,*,$,$)',
-           (qualArray, timePoints, roaArray))
-
-    #mdsput('\mst_tsmp::top.proc_tsmp.teneprobgrid', 'build_signal($,*,*,*,$,$)',
-    #       (ProbGrid, timePoints, roaArray))
-
-    mdsput('\mst_tsmp::top.proc_tsmp.lastfitdate', '$', (date.today().isoformat(),))
-
-    txt = 'Python fitting code. 1.0\nVersion: 1.0\n\n' + data.getReadme()
-    mdsput('\mst_tsmp::top.proc_tsmp.readme', '$', (txt, ))
-
-    mdsclose('mst_tsmp', data.shotNum)
-
-    """
-    # Update flags in the MST logbook
-    mdsopen('mst_logbook', data.shotNum)
-    # check that the quality array isn't just -1, and
-    # identify the indices of good data
-    if qualArray.size > 1:
-	good = where(qualArray == 0)
-	# check that there are temperatures, and
-	# then determine the logbook flag value
-	if TeArray.size > 1:
-	    data_quality = len(good[0])/qualArray.size
-	    if data_quality > 0.3:
-		mdsput('\mst_logbook::top.discharge.diagnostics.ts','$', LOGBOOK_TRUE)
-	    else:
-		mdsput('\mst_logbook::top.discharge.diagnostics.ts','$', LOGBOOK_UNSURE)
-    mdsclose('mst_logbook', data.shotNum)
-    """
-
-    mdsdisconnect()
-
-
-
-def writeOutputFile(data):
-    fn = util.getSaveFilePath(data.shotNum)
-    with open(fn, 'w') as f:
-        f.write(data.getReadme(False))
 
