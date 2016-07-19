@@ -1,6 +1,6 @@
 from numpy import where, zeros_like, max, min
 
-def calcTransMask(ps):
+def transMask(ps):
     """Using the original method of finding the expected number of photons: the
     transmission functions need to be masked to remove noise.
 

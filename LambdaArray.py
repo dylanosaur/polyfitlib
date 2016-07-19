@@ -1,5 +1,5 @@
 from numpy import arange
-def calcLambdaArray(ps):
+def lambdaArray(ps):
     """Calculates an array of lambda values. This serves as the abscissa axis
     for the transmission functions. Updated 2014/03/27 by LAM.
     """

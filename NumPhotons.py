@@ -2,7 +2,7 @@ from numpy import array, average, sum, max, min
 from numpy import ndarray, abs, sqrt, absolute, where
 from scipy.optimize import leastsq
 
-def calcNumPhotons(ps):
+def numPhotons(ps):
     """Function fits the raw data of each APD with a polynomial and scaled
     characteristic pulse.
 

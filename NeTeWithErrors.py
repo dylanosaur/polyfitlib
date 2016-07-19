@@ -1,7 +1,7 @@
 from numpy import e, linspace, ndarray, where
 from NeTeProbability import _calcNeTeProbability
 
-def calcNeTeValuesWithErrors(ps, specFlag = "tsc"):
+def calcNeTeWithErrors(ps, specFlag ="tsc"):
     """Calculates the temperature and density with error bars. This is
     accomplished by creating a grid and calculating the probability for each
     point on the grid.

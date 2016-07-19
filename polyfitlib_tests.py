@@ -281,15 +281,15 @@ def fitWithWarnings(ps):
         ampOffset(ps)
         voltsFromData(ps)
         calc_t0(ps)
-        calcTransMask(ps)
-        calcNumPhotons(ps)
+        transMask(ps)
+        numPhotons(ps)
         filterChans(ps)
 	    #calcACPhotons(ps)
-        calcScatteringAngle(ps)
-        calcLambdaArray(ps)
-        calcTeNeInitVals(ps, 10.0, 'tsc')
-        calcMostProbable_neTe(ps, 'tsc')
-        calcNeTeValuesWithErrors(ps, 'tsc')
+        calcScatAngle(ps)
+        lambdaArray(ps)
+        NeTeInitVals(ps, 10.0, 'tsc')
+        mostProbableNeTe(ps, 'tsc')
+        calcNeTeWithErrors(ps, 'tsc')
 
     return ps
 
@@ -313,15 +313,15 @@ def fitPolySeg(ps, specFlag = "tsc"):
         ampOffset(ps)
         voltsFromData(ps)
         calc_t0(ps)
-        calcTransMask(ps)
-        calcNumPhotons(ps)
+        transMask(ps)
+        numPhotons(ps)
         filterChans(ps)
 	    #calcACPhotons(ps) #removed from analysis: PRE 06/01/16
-        calcScatteringAngle(ps)
-        calcLambdaArray(ps)
-        calcTeNeInitVals(ps, 10.0, specFlag)
-        calcMostProbable_neTe(ps, specFlag)
-        calcNeTeValuesWithErrors(ps, specFlag)
+        calcScatAngle(ps)
+        lambdaArray(ps)
+        NeTeInitVals(ps, 10.0, specFlag)
+        mostProbableNeTe(ps, specFlag)
+        calcNeTeWithErrors(ps, specFlag)
     except Exception, ex:
         # If we haven't set an error number, it is an unknown error. 
         if ps.errNum == 0:
@@ -341,7 +341,7 @@ def fitPolySeg(ps, specFlag = "tsc"):
 # calcTransMask can be removed from PolyFitLib to save time
 
 from numpy import where
-from TransMask import calcTransMask
+from TransMask import transMask
 
 from numpy import ndarray, any, average
 from AmpOffset import ampOffset
@@ -360,7 +360,7 @@ from numpy import where, min
 from numpy import array, average, sum, max, min, ndarray, abs, sqrt, absolute
 from scipy.optimize import leastsq
 
-from NumPhotons import calcNumPhotons, _polyPulseFitFn, _calcCharPulseBeginAndEnd
+from NumPhotons import numPhotons, _polyPulseFitFn, _calcCharPulseBeginAndEnd
 
 def calcACPhotons(ps):
     """Function fits the raw AC data of each APD with a polynomial and scaled
@@ -429,21 +429,21 @@ def calcACPhotons(ps):
 
 from FilterChans import filterChans
 
-from ScatteringAngle import calcScatteringAngle
+from ScatteringAngle import calcScatAngle
 from numpy import pi, arctan
 
 
 from numpy import arange
-from LambdaArray import calcLambdaArray
+from LambdaArray import lambdaArray
 
 from numpy import logspace, log10, exp, linspace
 from pylab import amap, where
-from TeNeInitVals import calcTeNeInitVals
+from TeNeInitVals import NeTeInitVals
 
-from MostProbable_NeTe import calcMostProbable_neTe
+from MostProbable_NeTe import mostProbableNeTe
 
 from numpy import e, linspace
-from NeTeWithErrors import calcNeTeValuesWithErrors
+from NeTeWithErrors import calcNeTeWithErrors
 
 from numpy import zeros, transpose
 

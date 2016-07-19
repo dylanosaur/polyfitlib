@@ -1,5 +1,5 @@
 from numpy import pi, arctan
-def calcScatteringAngle(ps):
+def calcScatAngle(ps):
     """Calculates the scattering angle for the given roa value of the poly."""
     a     = 0.5200 # The radius.
     alpha = 0.1733 # Height of detector above r = 0.
