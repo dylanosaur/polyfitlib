@@ -1,6 +1,6 @@
 try:
     #from ACPhotons import calcACPhotons
-    from AmpOffset import calcAmpOffset
+    from AmpOffset import ampOffset
     #from _CharPulseBeginAndEnd import _calcCharPulseBeginAndEnd
     #from FilterChans import filterChans
     #from _GetACDataAndCharPulse import _getACDataAndCharPulse
@@ -27,14 +27,14 @@ try:
 except Exception, ex:
     print 'failed to import all functions, error is: ', ex
 
-__all__ = ['calcACPhotons', 'calcAmpOffset', '_calcCharPulseBeginAndEnd',
+__all__ = ['calcACPhotons', 'ampOffset', '_calcCharPulseBeginAndEnd',
            'filterChans', '_getACDataAndCharPulse', '_getDCDataAndCharPulse',
            'getLaserFireTimes', 'calcLambdaArray',
            'calcMostProbable_neTe', 'calcTeNeInitVals', '_calcNeTeProbability',
            'calcNeTeValuesWithErrors', '_N_model', 'calcNumPhotons',
            '_polyPulseFitFn', 'saveToMDSplus', 'calcScatteringAngle',
            'calc_t0', 'calcTransMask', 'calcVoltageFromRawData',
-           'writeOutputFile' ]
+           'writeOutputFile']
 
 try:
     #from FitPolySeg import fitPolySeg

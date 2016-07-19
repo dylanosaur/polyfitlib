@@ -1,7 +1,7 @@
 from numpy import ndarray, any, average
 
 
-def calcAmpOffset(ps):
+def ampOffset(ps):
     """Calculates the AC and DC amplifier offsets from the PolySegData.acq_offsetRaw
     and str_offsetRaw variables. That is a data segment taken with no light so we
     can measure the "dark voltage," or amplifier offsets.  Technically, the AC offset

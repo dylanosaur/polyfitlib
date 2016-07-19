@@ -278,8 +278,8 @@ def fitWithWarnings(ps):
     Returns: The polySegData object
     """
     if 1:
-        calcAmpOffset(ps)
-        calcVoltageFromRawData(ps)
+        ampOffset(ps)
+        voltsFromData(ps)
         calc_t0(ps)
         calcTransMask(ps)
         calcNumPhotons(ps)
@@ -310,8 +310,8 @@ def fitPolySeg(ps, specFlag = "tsc"):
     ps._modelCache = _modelCache
 
     try:
-        calcAmpOffset(ps)
-        calcVoltageFromRawData(ps)
+        ampOffset(ps)
+        voltsFromData(ps)
         calc_t0(ps)
         calcTransMask(ps)
         calcNumPhotons(ps)
@@ -344,10 +344,10 @@ from numpy import where
 from TransMask import calcTransMask
 
 from numpy import ndarray, any, average
-from AmpOffset import calcAmpOffset
+from AmpOffset import ampOffset
 
 from numpy import ndarray, any
-from VoltageFromRawData import calcVoltageFromRawData
+from VoltageFromRawData import voltsFromData
 
 from numpy import zeros_like, min
 from scipy import polyfit, polyval

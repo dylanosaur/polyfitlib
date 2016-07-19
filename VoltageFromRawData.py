@@ -1,7 +1,7 @@
 from numpy import ndarray, any
 
 
-def calcVoltageFromRawData(ps):
+def voltsFromData(ps):
     """Calculate the AC and DC voltage data points from the raw data and calibrations.
 
     Parameters:
