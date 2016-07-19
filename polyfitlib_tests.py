@@ -51,7 +51,7 @@ except:
 import warnings
 warnings.simplefilter("ignore")
 
-
+from util import getMdsServer
 
 def getLaserFireTimes(shotNum, burstLen = 0):
     """Find the times at which the laser fired based on the laser diode for the
@@ -373,5 +373,5 @@ from DataOps.CalcMostProbable import calcMostProbable
 from numpy import linspace
 from DataOps.CalcWithErrors import calcWithErrors
 
-from util import getMdsServer
+
 
