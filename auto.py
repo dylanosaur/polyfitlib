@@ -6,7 +6,7 @@ from parser import ps_methods_dir, find_occ
 # exists only in dreams
 # def write_script():
 
-path = './NeTeWithErrors.py'
+path = './CalcWithErrors.py'
 def it_handler_v2():
     dir = ps_methods_dir()
     indent = "    "+"    " # 8 spaces

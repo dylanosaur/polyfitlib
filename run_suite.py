@@ -16,8 +16,8 @@ def main():
     # time fitShot routine to compare new/ old analysis
     start_new = time.time()
     try:
-        poly_new = pfl.fitShot(1140726089, burstLen=25)
-        #poly_new = pfl.fitShot(1160325025, burstLen=25)
+        #poly_new = pfl.fitShot(1140726089, burstLen=25)
+        poly_new = pfl.fitShot(1160325025, burstLen=25)
         new = poly_new.data
     except Exception, ex:
         print 'error: shots not loaded correctly,', ex
@@ -25,8 +25,8 @@ def main():
     print 'new time =', finish_new - start_new
     start_old = time.time()
     try:
-        poly_old = opfl.fitShot(1140726089, burstLen=25)
-        #poly_old = opfl.fitShot(1160325025, burstLen=25)
+        #poly_old = opfl.fitShot(1140726089, burstLen=25)
+        poly_old = opfl.fitShot(1160325025, burstLen=25)
         old = poly_old.data
     except Exception, ex:
         print 'error: shots not loaded correctly,', ex

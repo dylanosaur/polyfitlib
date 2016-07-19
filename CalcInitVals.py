@@ -1,7 +1,7 @@
 from numpy import logspace, log10, exp, linspace
 
 from NeTeProbability import _calcNeTeProbability
-def NeTeInitVals(ps, gridPts = 10.0, specFlag ="tsc"):
+def calcInitVals(ps, gridPts = 10.0, specFlag ="tsc"):
     """Perform a simple grid search to find apropriate initial ne and Te
     values. These values are used as the starting point for finding the most
     probable density and temperature.
@@ -42,4 +42,4 @@ def NeTeInitVals(ps, gridPts = 10.0, specFlag ="tsc"):
             ps.setError(700)
 
         print "Grid search failed with %s points, retrying." % gridPts
-        NeTeInitVals(ps, gridPts + 10.0)
+        calcInitVals(ps, gridPts + 10.0)

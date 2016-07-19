@@ -2,7 +2,7 @@ from scipy.optimize import fmin
 from NeTeProbability import _calcNeTeProbability, _N_model
 
 
-def mostProbableNeTe(ps, specFlag ="tsc"):
+def calcMostProbable(ps, specFlag ="tsc"):
     """Find the most likely temperature and density combination."""
 
     def __calcNeTeProbability(x, ps, specFlag):

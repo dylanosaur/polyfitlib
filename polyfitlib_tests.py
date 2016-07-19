@@ -287,9 +287,9 @@ def fitWithWarnings(ps):
 	    #calcACPhotons(ps)
         calcScatAngle(ps)
         lambdaArray(ps)
-        NeTeInitVals(ps, 10.0, 'tsc')
-        mostProbableNeTe(ps, 'tsc')
-        calcNeTeWithErrors(ps, 'tsc')
+        calcInitVals(ps, 10.0, 'tsc')
+        calcMostProbable(ps, 'tsc')
+        calcWithErrors(ps, 'tsc')
 
     return ps
 
@@ -319,9 +319,9 @@ def fitPolySeg(ps, specFlag = "tsc"):
 	    #calcACPhotons(ps) #removed from analysis: PRE 06/01/16
         calcScatAngle(ps)
         lambdaArray(ps)
-        NeTeInitVals(ps, 10.0, specFlag)
-        mostProbableNeTe(ps, specFlag)
-        calcNeTeWithErrors(ps, specFlag)
+        calcInitVals(ps, 10.0, specFlag)
+        calcMostProbable(ps, specFlag)
+        calcWithErrors(ps, specFlag)
     except Exception, ex:
         # If we haven't set an error number, it is an unknown error. 
         if ps.errNum == 0:
@@ -347,12 +347,12 @@ from numpy import ndarray, any, average
 from AmpOffset import ampOffset
 
 from numpy import ndarray, any
-from VoltageFromRawData import voltsFromData
+from VoltsFromData import voltsFromData
 
 from numpy import zeros_like, min
 from scipy import polyfit, polyval
 from numpy import arange, sum, where, floor
-from T0 import calc_t0
+from Calc_t0 import calc_t0
 
 from numpy import arange, square
 
@@ -429,7 +429,7 @@ def calcACPhotons(ps):
 
 from FilterChans import filterChans
 
-from ScatteringAngle import calcScatAngle
+from CalcScatAngle import calcScatAngle
 from numpy import pi, arctan
 
 
@@ -438,12 +438,12 @@ from LambdaArray import lambdaArray
 
 from numpy import logspace, log10, exp, linspace
 from pylab import amap, where
-from TeNeInitVals import NeTeInitVals
+from CalcInitVals import calcInitVals
 
-from MostProbable_NeTe import mostProbableNeTe
+from CalcMostProbable import calcMostProbable
 
 from numpy import e, linspace
-from NeTeWithErrors import calcNeTeWithErrors
+from CalcWithErrors import calcWithErrors
 
 from numpy import zeros, transpose
 
