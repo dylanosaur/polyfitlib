@@ -9,6 +9,8 @@ def calcMostProbable(ps, specFlag ="tsc"):
     def __calcNeTeProbability(x, ps, specFlag):
         try:
             return_val = _calcNeTeProbability(x[0], x[1], ps, specFlag)
+            # return_val = A * e^(-chi2)/2
+            # --> chi2 + log(A), log(A) are normalization terms
             offset_chi2 = -1.0* log(-1.0*return_val)
             return offset_chi2
         except Exception, ex:
