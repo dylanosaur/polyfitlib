@@ -1,5 +1,6 @@
 from scipy.optimize import fmin
 from NeTeProbability import _calcNeTeProbability, _N_model
+from numpy import log
 
 
 def calcMostProbable(ps, specFlag ="tsc"):
@@ -8,7 +9,8 @@ def calcMostProbable(ps, specFlag ="tsc"):
     def __calcNeTeProbability(x, ps, specFlag):
         try:
             return_val = _calcNeTeProbability(x[0], x[1], ps, specFlag)
-            return return_val
+            offset_chi2 = -1.0* log(-1.0*return_val)
+            return offset_chi2
         except Exception, ex:
             print 'unknown error', ex
 

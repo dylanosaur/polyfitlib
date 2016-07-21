@@ -67,7 +67,6 @@ def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):
                                     ps.bgPhotons, ps.calib.APDfqeDC)
         # instead return constant + chi2 value
         # constant is some normalization constant from probability calculation
-        offset_chi2 = -1.0* log(-1.0*val)
-        return offset_chi2
+        return val
     else:
         return spectral_weave.calcModelProbability(ps, N_model)
