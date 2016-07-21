@@ -1,11 +1,14 @@
+# this is a version of polyfitlib with all refactoring/cache changes
+# created 07/19/16 as a file to be used for comparison tests
+
 from __future__ import with_statement
 
 # Grid search parameters - rough search
 # Global constants Te_MIN, Te_MAX, NE_STEPS, TE_STEPS deprecated 07/19/16 -DTA
-# Moved to an attribute of ps object (in ./DataOps_v2/Data.py )
+# Moved to an attribute of ps object (in ./DataOps/Data.py )
 
 # Saturation levels
-# ACQIRIS_MIN and MAX usage commented out in ./DataOps_v2/ampOffset.py
+# ACQIRIS_MIN and MAX usage commented out in ./DataOps/ampOffset.py
 ACQIRIS_MIN = -128
 ACQIRIS_MAX = 127
 # STRUCK_MIN, STRUCK_MAX moved to ps object attributes
@@ -37,8 +40,8 @@ import warnings
 warnings.simplefilter("ignore")
 
 
-from DataOps_v2.GetLaserFireTimes import getLaserFireTimes
-from DataOps_v2.Data import Data
+from DataOps.GetLaserFireTimes import getLaserFireTimes
+from DataOps.Data import Data
 import itertools
 
 def fitShot(shotNum, specFlag = "tsc", numProcs = None, burstLen = 0):
@@ -165,15 +168,15 @@ def fitPolySeg(ps, specFlag = "tsc"):
 # so the calibration file already contains a masked transmission function.
 # calcTransMask can be removed from PolyFitLib to save time
 
-# these files have been moved to the DataOps_v2 package, a local directory
-from DataOps_v2.TransMask import transMask
-from DataOps_v2.AmpOffset import ampOffset
-from DataOps_v2.VoltsFromData import voltsFromData
-from DataOps_v2.Calc_t0 import calc_t0
-from DataOps_v2.NumPhotons import numPhotons
-from DataOps_v2.FilterChans import filterChans
-from DataOps_v2.CalcScatAngle import calcScatAngle
-from DataOps_v2.LambdaArray import lambdaArray
-from DataOps_v2.CalcInitVals import calcInitVals
-from DataOps_v2.CalcMostProbable import calcMostProbable
-from DataOps_v2.CalcWithErrors import calcWithErrors
+# these files have been moved to the DataOps package, a local directory
+from DataOps.TransMask import transMask
+from DataOps.AmpOffset import ampOffset
+from DataOps.VoltsFromData import voltsFromData
+from DataOps.Calc_t0 import calc_t0
+from DataOps.NumPhotons import numPhotons
+from DataOps.FilterChans import filterChans
+from DataOps.CalcScatAngle import calcScatAngle
+from DataOps.LambdaArray import lambdaArray
+from DataOps.CalcInitVals import calcInitVals
+from DataOps.CalcMostProbable import calcMostProbable
+from DataOps.CalcWithErrors import calcWithErrors

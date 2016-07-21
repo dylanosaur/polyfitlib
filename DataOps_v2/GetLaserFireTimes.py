@@ -1,6 +1,7 @@
 from util import getMdsServer
 from numpy import mean, max, where, array, diff, median, arange
 from numpy import concatenate, absolute, roll, logical_and
+
 def getLaserFireTimes(shotNum, burstLen = 0):
     """Find the times at which the laser fired based on the laser diode for the
     given shot number.

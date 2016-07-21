@@ -9,7 +9,7 @@
 # main script runs full suite comparing variables
 # involved in each step of fitPolySeg routine
 import polyfitlib_tests as pfl
-import polyfitlib as opfl
+import polyfitlib_refactored as opfl
 import time
 def main():
 
