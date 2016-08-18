@@ -46,6 +46,7 @@ def _N_model(ne, Te, ps, specFlag = "tsc"):
 
         return ne * ps._modelCache[cache_address]
 
+from math import log
 def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):
     """Calculate the probability of getting the number of measured photons
     given the temperature and density.
@@ -62,7 +63,7 @@ def _calcNeTeProbability(ne, Te, ps, specFlag = "tsc"):
     N_model = _N_model(ne, Te, ps, specFlag)
 
     if specFlag == "tsc":
-        return ts_c.calcNeTeProbability(N_model, ps.scatPhotonsDC,
-                                    ps.bgPhotons, ps.calib.APDfqeDC)
+        return -log(-ts_c.calcNeTeProbability(N_model, ps.scatPhotonsDC,
+                                    ps.bgPhotons, ps.calib.APDfqeDC) )
     else:
-        return spectral_weave.calcModelProbability(ps, N_model)
+        return -log(-spectral_weave.calcModelProbability(ps, N_model) )
