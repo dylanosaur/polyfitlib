@@ -106,8 +106,8 @@
       <file leaf-file-name="run_suite.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run_suite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="188">
+              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -240,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1472150409072</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="made run_suite take shot as an input">
+      <created>1472150667737</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1472150667737</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -282,7 +289,8 @@
     <MESSAGE value="version didn't contain uncertainty patch, now it does" />
     <MESSAGE value="added comment to error file, added new error type for ne, Te uncertainties being too small" />
     <MESSAGE value="added logical_and dependency to GetLaserFireTimes module" />
-    <option name="LAST_COMMIT_MESSAGE" value="added logical_and dependency to GetLaserFireTimes module" />
+    <MESSAGE value="made run_suite take shot as an input" />
+    <option name="LAST_COMMIT_MESSAGE" value="made run_suite take shot as an input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -357,8 +365,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="188">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
           <folding />
         </state>
       </provider>
