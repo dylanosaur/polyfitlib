@@ -10,6 +10,7 @@ WARNING = {
     32  : 'Failed to fit poly-pulse.',
     64  : 'One or more channels skipped in the Bayesian analysis.',
     128 : 'Undefined.'
+    256 : 'Uncertainties from ne or Te fits are larger than reported'
 }
 
 # Errors are fatal, so are not bitwise ored. 
