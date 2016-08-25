@@ -54,12 +54,12 @@ def calcWithErrors(ps, specFlag ="tsc"):
         # If there are error points are end points, then we should issue a
         # warning.
 
-        # Version 1.3 code change 1/1 start
+        # Version 1.3 patch 1/2 start
         if ps.neErrMin != ps.neArray[0] or ps.neErrMax != ps.neArray[-1]:
             ps.setWarning(256, 'ne uncertainties are too small')
         if ps.TeErrMin != ps.TeArray[0] or ps.neErrMax != ps.TeArray[-1]:
             ps.setWarning(256, 'Te uncertainties are too small')
-        # Version 1.3 code change 1/1 end
+        # Version 1.3 code patch 1/2 end
 
     except Exception, ex:
         # An exception will be thrown if there are no points in the

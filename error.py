@@ -9,8 +9,8 @@ WARNING = {
     16  : 'Failed to find AC t0 value.',
     32  : 'Failed to fit poly-pulse.',
     64  : 'One or more channels skipped in the Bayesian analysis.',
-    128 : 'Undefined.'
-    256 : 'Uncertainties from ne or Te fits are larger than reported'
+    128 : 'Uncertainties from ne or Te fits are larger than reported',
+    256 : 'Undefined.'
 }
 
 # Errors are fatal, so are not bitwise ored. 
@@ -25,3 +25,5 @@ ERROR = {
     900  : 'Temperature or density error bars are too large.',
 }
 
+# Version 1.3 patch 2/2 : added warning for ne, Te uncertainties
+# moved undefined warning to have index 256

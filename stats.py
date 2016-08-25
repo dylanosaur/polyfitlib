@@ -30,7 +30,7 @@ def plot_2d(test_obj, xlabel='old Te values', ylabel='new Te values', title='sho
             Te_array[1][n] = 0
 
     # Initialize cache
-    error_type = [0, 1, 2, 4, 8, 16, 32, 64, 132,
+    error_type = [0, 1, 2, 4, 8, 16, 32, 64, 128, 256,
                   100, 200, 300, 400, 500, 600, 700, 800, 900]
     for i in range(len(error_type)):
         error_dict['old', error_type[i]] = 0;
