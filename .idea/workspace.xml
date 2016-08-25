@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b300c52c-823b-4e36-98aa-858045998896" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" afterPath="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_suite.py" afterPath="$PROJECT_DIR$/run_suite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stats.py" afterPath="$PROJECT_DIR$/stats.py" />
     </list>
     <ignored path="polyfitlib.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stats.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stats.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
               <folding>
                 <element signature="e#185#203#0" expanded="true" />
               </folding>
@@ -70,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run_suite.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run_suite.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run_suite.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="533">
@@ -93,11 +92,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/stats.py" />
         <option value="$PROJECT_DIR$/DataOps/CalcWithErrors.py" />
         <option value="$PROJECT_DIR$/error.py" />
         <option value="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" />
         <option value="$PROJECT_DIR$/run_suite.py" />
+        <option value="$PROJECT_DIR$/stats.py" />
       </list>
     </option>
   </component>
@@ -362,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1472153742881</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="made shot an input parameter for run_suite&#10;fixed workspace file&#10;added logical_and import to GetLaseFireTimes">
+      <created>1472154129595</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1472154129595</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -406,7 +412,8 @@
     <MESSAGE value="added logical_and dependency to GetLaserFireTimes module" />
     <MESSAGE value="made run_suite take shot as an input" />
     <MESSAGE value="removed check_errors file since patch was applied in CalcWithErrors file instead" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed check_errors file since patch was applied in CalcWithErrors file instead" />
+    <MESSAGE value="made shot an input parameter for run_suite&#10;fixed workspace file&#10;added logical_and import to GetLaseFireTimes" />
+    <option name="LAST_COMMIT_MESSAGE" value="made shot an input parameter for run_suite&#10;fixed workspace file&#10;added logical_and import to GetLaseFireTimes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -537,16 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#185#203#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -578,6 +575,16 @@
         <state relative-caret-position="533">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
+          <folding>
+            <element signature="e#185#203#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
