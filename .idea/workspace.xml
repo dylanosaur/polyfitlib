@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b300c52c-823b-4e36-98aa-858045998896" name="Default" comment="missing comma from updated error log">
+    <list default="true" id="b300c52c-823b-4e36-98aa-858045998896" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataOps/CalcWithErrors.py" afterPath="$PROJECT_DIR$/DataOps/CalcWithErrors.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/error.py" afterPath="$PROJECT_DIR$/error.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stats.py" afterPath="$PROJECT_DIR$/stats.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" afterPath="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" />
     </list>
     <ignored path="polyfitlib.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,12 +59,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="error.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="error.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/error.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
-              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetLaserFireTimes.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DataOps/GetLaserFireTimes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,6 +114,7 @@
         <option value="$PROJECT_DIR$/stats.py" />
         <option value="$PROJECT_DIR$/DataOps/CalcWithErrors.py" />
         <option value="$PROJECT_DIR$/error.py" />
+        <option value="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" />
       </list>
     </option>
   </component>
@@ -204,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1472149865468</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added comment to error file, added new error type for ne, Te uncertainties being too small">
+      <created>1472150198669</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1472150198669</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -244,7 +262,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="deleted/remade workspace file to remove annoying PyCharm complaint" />
     <MESSAGE value="version didn't contain uncertainty patch, now it does" />
-    <option name="LAST_COMMIT_MESSAGE" value="version didn't contain uncertainty patch, now it does" />
+    <MESSAGE value="added comment to error file, added new error type for ne, Te uncertainties being too small" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comment to error file, added new error type for ne, Te uncertainties being too small" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -302,8 +321,18 @@
     <entry file="file://$PROJECT_DIR$/error.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataOps/GetLaserFireTimes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
