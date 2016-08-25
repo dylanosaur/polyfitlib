@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b300c52c-823b-4e36-98aa-858045998896" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" afterPath="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_suite.py" afterPath="$PROJECT_DIR$/run_suite.py" />
     </list>
     <ignored path="polyfitlib.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetLaserFireTimes.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetLaserFireTimes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataOps/GetLaserFireTimes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -96,8 +96,18 @@
       <file leaf-file-name="stats.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
+            <state relative-caret-position="525">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_suite.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/run_suite.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -115,6 +125,7 @@
         <option value="$PROJECT_DIR$/DataOps/CalcWithErrors.py" />
         <option value="$PROJECT_DIR$/error.py" />
         <option value="$PROJECT_DIR$/DataOps/GetLaserFireTimes.py" />
+        <option value="$PROJECT_DIR$/run_suite.py" />
       </list>
     </option>
   </component>
@@ -222,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1472150198669</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added logical_and dependency to GetLaserFireTimes module">
+      <created>1472150409072</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1472150409072</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -263,7 +281,8 @@
     <MESSAGE value="deleted/remade workspace file to remove annoying PyCharm complaint" />
     <MESSAGE value="version didn't contain uncertainty patch, now it does" />
     <MESSAGE value="added comment to error file, added new error type for ne, Te uncertainties being too small" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comment to error file, added new error type for ne, Te uncertainties being too small" />
+    <MESSAGE value="added logical_and dependency to GetLaserFireTimes module" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logical_and dependency to GetLaserFireTimes module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -300,14 +319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataOps/CalcWithErrors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -333,6 +344,22 @@
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

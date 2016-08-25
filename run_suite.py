@@ -12,26 +12,35 @@ import polyfitlib_tests as pfl
 import polyfitlib as opfl
 import time
 def main():
+    def main(shot='std'):
 
-    # time fitShot routine to compare new/ old analysis
-    start_new = time.time()
-    try:
-        #poly_new = pfl.fitShot(1140726089, burstLen=25)
-        poly_new = pfl.fitShot(1160325025, burstLen=25)
+        # time fitShot routine to compare new/ old analysis
+
+        start_new = time.time()
+        if shot == 'std':
+            poly_new = pfl.fitShot(1140726089, burstLen=25)
+        elif shot == 'alt':
+            poly_new = pfl.fitShot(1160325025)
+        elif shot == 'alt2':
+            poly_new = pfl.fitShot(1150825166)
+        else:
+            print 'invalid shot key, try std or alt'
         new = poly_new.data
-    except Exception, ex:
-        print 'error: shots not loaded correctly,', ex
-    finish_new = time.time()
-    print 'new time =', finish_new - start_new
-    start_old = time.time()
-    try:
-        #poly_old = opfl.fitShot(1140726089, burstLen=25)
-        poly_old = opfl.fitShot(1160325025, burstLen=25)
+        finish_new = time.time()
+        print 'new time =', finish_new - start_new
+
+        start_old = time.time()
+        if shot == 'std':
+            poly_old = opfl.fitShot(1140726089, burstLen=25)
+        elif shot == 'alt':
+            poly_old = opfl.fitShot(1160325025)
+        elif shot == 'alt2':
+            poly_old = opfl.fitShot(1150825166)
+        else:
+            print 'invalid shot key, try std or alt'
+        finish_old = time.time()
         old = poly_old.data
-    except Exception, ex:
-        print 'error: shots not loaded correctly,', ex
-    finish_old = time.time()
-    print 'old time =', finish_old - start_old
+        print 'old time =', finish_old - start_old
 
     # Using shot data, check attributes in testing suite
     # every str provided needs definition in it_handler()
